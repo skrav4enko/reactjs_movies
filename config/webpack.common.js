@@ -6,6 +6,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const postcssNormalize = require('postcss-normalize');
 
+const fileNameOutput = ({ isDevelopment, ext }) => {
+  return isDevelopment ? `[name].${ext}` : `[name].[hash:8].${ext}`;
+};
+
 const styleLoaders = (isDevelopment) => {
   const loaders = [
     {
@@ -48,10 +52,10 @@ module.exports = (mode) => {
     },
     output: {
       path: path.resolve('build'),
-      filename: '[name].[hash:8].js',
+      filename: fileNameOutput({ isDevelopment, ext: 'js' }),
     },
     resolve: {
-      extensions: ['.js', '.json'],
+      extensions: ['.js', '.jsx'],
     },
   };
 
@@ -64,7 +68,7 @@ module.exports = (mode) => {
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[hash:8].css',
+      filename: fileNameOutput({ isDevelopment, ext: 'css' }),
     }),
     new CopyWebpackPlugin([
       {
@@ -87,14 +91,17 @@ module.exports = (mode) => {
     },
     {
       test: /\.scss$/,
+      exclude: /node_modules/,
       use: styleLoaders(isDevelopment),
     },
     {
       test: /\.(png|jpe?g|svg|gif)$/,
+      exclude: /node_modules/,
       use: ['file-loader'],
     },
     {
       test: /\.(ttf|woff|woff2|eot)$/,
+      exclude: /node_modules/,
       use: ['file-loader'],
     },
   ];

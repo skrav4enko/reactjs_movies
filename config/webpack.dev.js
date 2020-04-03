@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const commonConfig = require('./webpack.common');
 
 const mode = 'development';
@@ -5,7 +6,10 @@ const mode = 'development';
 module.exports = (options) => {
   return {
     ...commonConfig(mode).base,
-    plugins: [...commonConfig(mode).plugins],
+    plugins: [
+      ...commonConfig(mode).plugins,
+      new webpack.HotModuleReplacementPlugin()
+    ],
     module: {
       rules: [...commonConfig(mode).rules],
     },
