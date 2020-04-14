@@ -5,12 +5,13 @@ import MovieDesc from './movie-desc/MovieDesc';
 import SortResults from '../search-movie/sort-results/SortResults';
 
 function MovieDetail(props) {
-  const { movie, movies } = props;
+  const { movie, movies, navigateTo } = props;
+
   return (
     <>
       <MovieDesc movie={movie} />
       <SortResults describe={`Film by ${movie.genres[0]} genre`} />
-      <SearchResult movies={movies} />
+      <SearchResult movies={movies} navigateTo={navigateTo}/>
     </>
   );
 }

@@ -2,10 +2,10 @@ import React from 'react';
 import './MovieCard.scss';
 
 function MovieCard(props) {
-  const { movie } = props;
+  const { movie, navigateTo } = props;
 
   return (
-    <div className="movie-card">
+    <div className="movie-card" onClick={() => navigateTo(movie.id)}>
       <div className="movie-card__poster">
         <img className="movie-card__img" src={movie.poster_path} alt={movie.title} />
       </div>
