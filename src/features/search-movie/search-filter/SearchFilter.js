@@ -4,26 +4,69 @@ import InputField from '../../../shared/input-field/InputField';
 import Button from '../../../shared/button/Button';
 import ButtonGroup from '../../../shared/button-group/ButtonGroup';
 
-function SearchFilter(props) {
-  return (
-    <div className="search-filter">
-      <div className="container">
-        <h1 className="search-filter__title">Find your movie</h1>
-        <div className="search-filter__search">
-          <InputField placeholder="Search" /> <Button>Search</Button>
-        </div>
-        <div>
-          <span className="search-filter__search-by">Search by</span>
-          <ButtonGroup>
-            <Button size="small">Title</Button>
-            <Button variant="secondary" size="small">
-              Genre
-            </Button>
-          </ButtonGroup>
+class SearchFilter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: '' };
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const { handleFilter } = this.props;
+    const { value } = this.state;
+
+    handleFilter(value);
+    this.resetState();
+  }
+
+  resetState() {
+    this.setState({ value: '' });
+  }
+
+  render() {
+    const { filterBy, handleFilterBy } = this.props;
+
+    return (
+      <div className="search-filter">
+        <div className="container">
+          <h1 className="search-filter__title">Find your movie</h1>
+          <form className="search-filter__search" onSubmit={this.handleSubmit.bind(this)}>
+            <InputField
+              placeholder="Search"
+              value={this.state.value}
+              onChange={this.handleChange.bind(this)}
+              onKeyUp={this.onKeyUp}
+            />
+            <Button type="submit">Search</Button>
+          </form>
+          <div>
+            <span className="search-filter__search-by">Search by</span>
+            <ButtonGroup>
+              <Button
+                variant={filterBy === 'title' ? '' : 'secondary'}
+                size="small"
+                onClick={() => handleFilterBy('title')}
+              >
+                Title
+              </Button>
+              <Button
+                variant={filterBy === 'genres' ? '' : 'secondary'}
+                size="small"
+                onClick={() => handleFilterBy('genres')}
+              >
+                Genre
+              </Button>
+            </ButtonGroup>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default SearchFilter;

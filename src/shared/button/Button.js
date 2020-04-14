@@ -2,10 +2,10 @@ import React from 'react';
 import './Button.scss';
 
 function Button(props) {
-  const { children, variant, size, onClick } = props;
+  const { children, type = 'button', variant, size, onClick } = props;
 
   return (
-    <button className={`button ${variant} ${size}`} onClick={onClick}>
+    <button className={`button ${variant} ${size}`} type={type} onClick={onClick}>
       {children}
     </button>
   );

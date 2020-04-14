@@ -4,7 +4,8 @@ import Button from '../../../shared/button/Button';
 import ButtonGroup from '../../../shared/button-group/ButtonGroup';
 
 function SortResults(props) {
-  const { describe } = props;
+  const { describe, sortBy, handleSort } = props;
+
   return (
     <div className="sort-results">
       <div className="container">
@@ -12,8 +13,18 @@ function SortResults(props) {
         <div className="sort-results__filter">
           <span className="sort-results__filter-by">Sort by</span>
           <ButtonGroup>
-            <Button size="small">Release date</Button>
-            <Button variant="secondary" size="small">
+            <Button
+              variant={sortBy === 'release_date' ? '' : 'secondary'}
+              size="small"
+              onClick={() => handleSort('release_date')}
+            >
+              Release date
+            </Button>
+            <Button
+              variant={sortBy === 'vote_average' ? '' : 'secondary'}
+              size="small"
+              onClick={() => handleSort('vote_average')}
+            >
               Rating
             </Button>
           </ButtonGroup>

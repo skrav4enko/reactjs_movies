@@ -8,12 +8,12 @@ import NoResults from './no-results/NoResults';
 import SortResults from './sort-results/SortResults';
 
 function SearchMovie(props) {
-  const { movies, navigateTo } = props;
+  const { movies, sortBy, filterBy, navigateTo, handleSort, handleFilterBy, handleFilter } = props;
 
   return (
     <>
-      <SearchFilter />
-      <SortResults describe={`${movies.length} movies found`} />
+      <SearchFilter filterBy={filterBy} handleFilterBy={handleFilterBy} handleFilter={handleFilter} />
+      <SortResults describe={`${movies.length} movies found`} sortBy={sortBy} handleSort={handleSort} />
       {movies.length ? <SearchResult movies={movies} navigateTo={navigateTo} /> : <NoResults />}
     </>
   );
