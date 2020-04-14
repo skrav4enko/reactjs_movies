@@ -1,0 +1,13 @@
+.main {
+  position: relative;
+  background-color: #232323;
+  color: #ffffff;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr 70px;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+}

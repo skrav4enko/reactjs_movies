@@ -1,0 +1,21 @@
+.sort-results {
+  background-color: #555555;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    padding: 25px 0;
+    margin: 0 auto;
+  }
+
+  &__count {
+    font-weight: 800;
+  }
+
+  &__filter-by {
+    text-transform: uppercase;
+    margin: 25px;
+  }
+}
