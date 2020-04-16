@@ -82,12 +82,7 @@ module.exports = (mode) => {
     {
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      loader: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env', '@babel/preset-react'],
-        },
-      },
+      loader: 'babel-loader',
     },
     {
       test: /\.scss$/,
