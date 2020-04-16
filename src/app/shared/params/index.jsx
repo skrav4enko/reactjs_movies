@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, number } from 'prop-types';
 
 import './styles.scss';
 
@@ -9,6 +10,16 @@ const Params = ({ value, dimension }) => {
       <span>{dimension}</span>
     </div>
   );
+};
+
+Params.propTypes = {
+  value: number,
+  dimension: string,
+};
+
+Params.defaultProps = {
+  value: 'string',
+  dimension: 'string',
 };
 
 export default Params;

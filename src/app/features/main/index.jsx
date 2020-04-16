@@ -3,11 +3,11 @@ import React from 'react';
 import './styles.scss';
 import Header from '../../core/header';
 import Footer from '../../core/footer';
-import SearchMovies from '../../features/searchMovies';
+import SearchMovies from '../searchMovies';
 import MovieDetail from '../movieDetail';
 import moviesData from '../../../mock/data.json';
 
-const movies = [...moviesData.data];
+const data = [...moviesData.data];
 
 const compareFn = (by) => (a, b) => {
   if (a[by] > b[by]) {
@@ -20,39 +20,10 @@ const compareFn = (by) => (a, b) => {
 };
 
 class Main extends React.Component {
-  state = { movies, filteredMovies: movies, selectedId: '', filterBy: 'title', selectedMovie: '' };
-
-  handleSearch = (value) => {
-    this.setState({
-      searchValue: value,
-    });
-  };
-
-  handleNavigate = (value) => {
-    this.setState({
-      selectedId: value,
-      selectedMovie: this.getSelectedMovie(value),
-    });
-  };
-
-  handleSort = (value) => {
-    this.setState({
-      sortBy: value,
-      filteredMovies: this.getSortedMovie(value),
-    });
-  };
-
-  handleFilterBy = (value) => {
-    this.setState({
-      filterBy: value,
-    });
-  };
-
-  handleFilter = (value) => {
-    this.setState({
-      filteredMovies: this.getFilteredMovie(value),
-    });
-  };
+  constructor(props) {
+    super(props);
+    this.state = { movies: data, filteredMovies: data, filterBy: 'title', selectedMovie: '' };
+  }
 
   getSelectedMovie(id) {
     const { filteredMovies } = this.state;
@@ -80,6 +51,31 @@ class Main extends React.Component {
       return nameLowerCase.includes(searchValueLoverCase);
     });
   }
+
+  handleNavigate = (value) => {
+    this.setState({
+      selectedMovie: this.getSelectedMovie(value),
+    });
+  };
+
+  handleSort = (value) => {
+    this.setState({
+      sortBy: value,
+      filteredMovies: this.getSortedMovie(value),
+    });
+  };
+
+  handleFilterBy = (value) => {
+    this.setState({
+      filterBy: value,
+    });
+  };
+
+  handleFilter = (value) => {
+    this.setState({
+      filteredMovies: this.getFilteredMovie(value),
+    });
+  };
 
   render() {
     const { filteredMovies, selectedMovie, sortBy, filterBy } = this.state;

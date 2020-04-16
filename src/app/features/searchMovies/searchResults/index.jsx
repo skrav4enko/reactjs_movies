@@ -1,8 +1,9 @@
 import React from 'react';
-import { object, arrayOf } from 'prop-types';
+import { func, arrayOf } from 'prop-types';
 
 import './styles.scss';
 import MovieCard from '../movieCard';
+import movieModel from '../../../models/movie.model';
 
 const SearchResults = ({ movies, navigateTo }) => {
   return (
@@ -17,7 +18,13 @@ const SearchResults = ({ movies, navigateTo }) => {
 };
 
 SearchResults.propTypes = {
-  movies: arrayOf(object),
+  movies: arrayOf(movieModel),
+  navigateTo: func,
+};
+
+SearchResults.defaultProps = {
+  movies: 'movies',
+  navigateTo: 'func',
 };
 
 export default SearchResults;

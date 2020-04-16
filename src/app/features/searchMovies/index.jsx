@@ -1,11 +1,12 @@
 import React from 'react';
-import { object, arrayOf } from 'prop-types';
+import { arrayOf, func, string } from 'prop-types';
 
 import './styles.scss';
 import SearchFilter from './searchFilter';
 import SearchResult from './searchResults';
 import NoResults from './noResults';
 import SortResults from './sortResults';
+import movieModel from '../../models/movie.model';
 
 const SearchMovies = ({ movies, sortBy, filterBy, navigateTo, handleSort, handleFilterBy, handleFilter }) => {
   return (
@@ -18,7 +19,23 @@ const SearchMovies = ({ movies, sortBy, filterBy, navigateTo, handleSort, handle
 };
 
 SearchMovies.propTypes = {
-  movies: arrayOf(object),
+  movies: arrayOf(movieModel),
+  sortBy: string,
+  filterBy: string,
+  navigateTo: func,
+  handleSort: func,
+  handleFilterBy: func,
+  handleFilter: func,
+};
+
+SearchMovies.defaultProps = {
+  movies: 'movies',
+  sortBy: 'string',
+  filterBy: 'string',
+  navigateTo: 'func',
+  handleSort: 'func',
+  handleFilterBy: 'func',
+  handleFilter: 'func',
 };
 
 export default SearchMovies;

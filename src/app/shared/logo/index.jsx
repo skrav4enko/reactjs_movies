@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles.scss';
 
-const Logo = (props) => {
+const Logo = () => {
   return (
     <div className="logo">
       <span className="logo--main">netflix</span>

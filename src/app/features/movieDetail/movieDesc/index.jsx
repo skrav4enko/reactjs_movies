@@ -3,6 +3,7 @@ import React from 'react';
 import './styles.scss';
 import Rating from '../../../shared/rating';
 import Params from '../../../shared/params';
+import movieModel from '../../../models/movie.model';
 
 const MovieDesc = ({ movie }) => {
   return (
@@ -26,6 +27,14 @@ const MovieDesc = ({ movie }) => {
       </div>
     </div>
   );
+};
+
+MovieDesc.propTypes = {
+  movie: movieModel,
+};
+
+MovieDesc.defaultProps = {
+  movie: 'movie',
 };
 
 export default MovieDesc;

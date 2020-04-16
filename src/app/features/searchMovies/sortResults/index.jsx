@@ -1,4 +1,5 @@
 import React from 'react';
+import { func, string } from 'prop-types';
 
 import './styles.scss';
 import Button from '../../../shared/button';
@@ -31,6 +32,18 @@ const SortResults = ({ describe, sortBy, handleSort }) => {
       </div>
     </div>
   );
+};
+
+SortResults.propTypes = {
+  describe: string,
+  sortBy: string,
+  handleSort: func,
+};
+
+SortResults.defaultProps = {
+  describe: 'string',
+  sortBy: 'string',
+  handleSort: 'func',
 };
 
 export default SortResults;

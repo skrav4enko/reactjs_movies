@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -48,7 +49,7 @@ module.exports = (mode) => {
     mode,
     context: path.resolve('src'),
     entry: {
-      main: './index.js',
+      main: './index.jsx',
     },
     output: {
       path: path.resolve('build'),

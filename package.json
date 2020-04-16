@@ -10,6 +10,7 @@
     "test": "jest",
     "test:coverage": "npm run test --coverage",
     "e2e": "cypress open",
+    "lint": "eslint .",
     "stats": "cross-env NODE_ENV=production webpack --json > stats.json && webpack-bundle-analyzer stats.json"
   },
   "author": "Sergey",
@@ -35,6 +36,7 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.10.1",
     "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-import": "^2.20.2",

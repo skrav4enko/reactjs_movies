@@ -1,10 +1,18 @@
 import React from 'react';
+import { func } from 'prop-types';
 
 import './styles.scss';
+import movieModel from '../../../models/movie.model';
 
 const MovieCard = ({ movie, navigateTo }) => {
   return (
-    <div className="movie-card" onClick={() => navigateTo(movie.id)}>
+    <div
+      className="movie-card"
+      onClick={() => navigateTo(movie.id)}
+      onKeyPress={() => navigateTo(movie.id)}
+      tabIndex="0"
+      role="link"
+    >
       <div className="movie-card__poster">
         <img className="movie-card__img" src={movie.poster_path} alt={movie.title} />
       </div>
@@ -17,6 +25,16 @@ const MovieCard = ({ movie, navigateTo }) => {
       </div>
     </div>
   );
+};
+
+MovieCard.propTypes = {
+  movie: movieModel,
+  navigateTo: func,
+};
+
+MovieCard.defaultProps = {
+  movie: 'movie',
+  navigateTo: 'func',
 };
 
 export default MovieCard;

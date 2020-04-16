@@ -1,4 +1,5 @@
 import React from 'react';
+import { func } from 'prop-types';
 
 import './styles.scss';
 import InputField from '../../../shared/inputField';
@@ -6,7 +7,10 @@ import Button from '../../../shared/button';
 import ButtonGroup from '../../../shared/buttonGroup';
 
 class SearchFilter extends React.Component {
-  state = { value: '' };
+  constructor(props) {
+    super(props);
+    this.state = { value: '' };
+  }
 
   handleChange = (event) => {
     this.setState({
@@ -31,6 +35,7 @@ class SearchFilter extends React.Component {
   }
 
   render() {
+    const { value } = this.state;
     const { filterBy, handleFilterBy } = this.props;
 
     return (
@@ -38,12 +43,7 @@ class SearchFilter extends React.Component {
         <div className="container">
           <h1 className="search-filter__title">Find your movie</h1>
           <form className="search-filter__search" onSubmit={this.handleSubmit}>
-            <InputField
-              placeholder="Search"
-              value={this.state.value}
-              onChange={this.handleChange}
-              onKeyUp={this.onKeyUp}
-            />
+            <InputField placeholder="Search" value={value} onChange={this.handleChange} onKeyUp={this.onKeyUp} />
             <Button type="submit">Search</Button>
           </form>
           <div>
@@ -70,5 +70,17 @@ class SearchFilter extends React.Component {
     );
   }
 }
+
+SearchFilter.propTypes = {
+  filterBy: func,
+  handleFilter: func,
+  handleFilterBy: func,
+};
+
+SearchFilter.defaultProps = {
+  filterBy: 'func',
+  handleFilter: 'func',
+  handleFilterBy: 'func',
+};
 
 export default SearchFilter;
