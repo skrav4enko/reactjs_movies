@@ -15,7 +15,7 @@ const SearchMovies = ({ movies, sortBy, filterBy, navigateTo, handleSort, handle
       {movies.length ? <SearchResult movies={movies} navigateTo={navigateTo} /> : <NoResults />}
     </>
   );
-}
+};
 
 SearchMovies.propTypes = {
   movies: arrayOf(object),

@@ -26,6 +26,6 @@ const MovieDesc = ({ movie }) => {
       </div>
     </div>
   );
-}
+};
 
 export default MovieDesc;

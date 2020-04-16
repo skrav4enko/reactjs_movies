@@ -8,6 +8,6 @@ const Button = ({ children, type = 'button', variant, size, onClick }) => {
       {children}
     </button>
   );
-}
+};
 
 export default Button;

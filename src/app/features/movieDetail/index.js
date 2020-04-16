@@ -13,6 +13,6 @@ const MovieDetail = ({ movie, movies, sortBy, navigateTo, handleSort }) => {
       <SearchResult movies={movies} navigateTo={navigateTo} />
     </>
   );
-}
+};
 
 export default MovieDetail;

@@ -20,49 +20,50 @@ const compareFn = (by) => (a, b) => {
 };
 
 class Main extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { movies, filteredMovies: movies, selectedId: '', filterBy: 'title', selectedMovie: '' };
-  }
+  state = { movies, filteredMovies: movies, selectedId: '', filterBy: 'title', selectedMovie: '' };
 
-  handleSearch(value) {
+  handleSearch = (value) => {
     this.setState({
       searchValue: value,
     });
-  }
+  };
 
-  handleNavigate(value) {
+  handleNavigate = (value) => {
     this.setState({
       selectedId: value,
       selectedMovie: this.getSelectedMovie(value),
     });
-  }
+  };
 
-  handleSort(value) {
+  handleSort = (value) => {
     this.setState({
       sortBy: value,
       filteredMovies: this.getSortedMovie(value),
     });
-  }
+  };
 
-  handleFilterBy(value) {
+  handleFilterBy = (value) => {
     this.setState({
       filterBy: value,
     });
-  }
+  };
 
-  handleFilter(value) {
+  handleFilter = (value) => {
     this.setState({
       filteredMovies: this.getFilteredMovie(value),
     });
-  }
+  };
 
   getSelectedMovie(id) {
-    return this.state.filteredMovies.find((movie) => movie.id === id);
+    const { filteredMovies } = this.state;
+
+    return filteredMovies.find((movie) => movie.id === id);
   }
 
   getSortedMovie(by) {
-    return this.state.filteredMovies.sort(compareFn(by));
+    const { filteredMovies } = this.state;
+
+    return filteredMovies.sort(compareFn(by));
   }
 
   getFilteredMovie(searchValue) {
@@ -85,25 +86,25 @@ class Main extends React.Component {
 
     return (
       <div className="main">
-        <Header navigateTo={this.handleNavigate.bind(this)} />
+        <Header navigateTo={this.handleNavigate} />
         <main className="content">
           {selectedMovie ? (
             <MovieDetail
               movie={selectedMovie}
               movies={filteredMovies}
               sortBy={sortBy}
-              navigateTo={this.handleNavigate.bind(this)}
-              handleSort={this.handleSort.bind(this)}
+              navigateTo={this.handleNavigate}
+              handleSort={this.handleSort}
             />
           ) : (
             <SearchMovies
               movies={filteredMovies}
               sortBy={sortBy}
               filterBy={filterBy}
-              navigateTo={this.handleNavigate.bind(this)}
-              handleSort={this.handleSort.bind(this)}
-              handleFilterBy={this.handleFilterBy.bind(this)}
-              handleFilter={this.handleFilter.bind(this)}
+              navigateTo={this.handleNavigate}
+              handleSort={this.handleSort}
+              handleFilterBy={this.handleFilterBy}
+              handleFilter={this.handleFilter}
             />
           )}
         </main>

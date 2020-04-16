@@ -6,16 +6,15 @@ import Button from '../../../shared/button';
 import ButtonGroup from '../../../shared/buttonGroup';
 
 class SearchFilter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: '' };
-  }
+  state = { value: '' };
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
-  }
+  handleChange = (event) => {
+    this.setState({
+      value: event.target.value,
+    });
+  };
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     const { handleFilter } = this.props;
@@ -23,10 +22,12 @@ class SearchFilter extends React.Component {
 
     handleFilter(value);
     this.resetState();
-  }
+  };
 
   resetState() {
-    this.setState({ value: '' });
+    this.setState({
+      value: '',
+    });
   }
 
   render() {
@@ -36,11 +37,11 @@ class SearchFilter extends React.Component {
       <div className="search-filter">
         <div className="container">
           <h1 className="search-filter__title">Find your movie</h1>
-          <form className="search-filter__search" onSubmit={this.handleSubmit.bind(this)}>
+          <form className="search-filter__search" onSubmit={this.handleSubmit}>
             <InputField
               placeholder="Search"
               value={this.state.value}
-              onChange={this.handleChange.bind(this)}
+              onChange={this.handleChange}
               onKeyUp={this.onKeyUp}
             />
             <Button type="submit">Search</Button>

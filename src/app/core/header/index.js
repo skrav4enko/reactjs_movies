@@ -15,6 +15,6 @@ const Header = ({ navigateTo }) => {
       </div>
     </header>
   );
-}
+};
 
 export default Header;

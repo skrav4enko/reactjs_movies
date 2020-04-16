@@ -9,6 +9,6 @@ const Params = ({ value, dimension }) => {
       <span>{dimension}</span>
     </div>
   );
-}
+};
 
 export default Params;

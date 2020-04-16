@@ -17,6 +17,6 @@ const MovieCard = ({ movie, navigateTo }) => {
       </div>
     </div>
   );
-}
+};
 
 export default MovieCard;

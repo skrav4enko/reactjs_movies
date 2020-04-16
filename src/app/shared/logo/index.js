@@ -9,6 +9,6 @@ const Logo = (props) => {
       <span>roulette</span>
     </div>
   );
-}
+};
 
 export default Logo;

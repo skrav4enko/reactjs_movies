@@ -31,6 +31,6 @@ const SortResults = ({ describe, sortBy, handleSort }) => {
       </div>
     </div>
   );
-}
+};
 
 export default SortResults;

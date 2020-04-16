@@ -14,7 +14,7 @@ const SearchResults = ({ movies, navigateTo }) => {
       </div>
     </div>
   );
-}
+};
 
 SearchResults.propTypes = {
   movies: arrayOf(object),
