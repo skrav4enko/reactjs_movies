@@ -95,9 +95,14 @@ module.exports = (mode) => {
       use: styleLoaders(isDevelopment),
     },
     {
-      test: /\.(png|jpe?g|svg|gif)$/,
+      test: /\.(png|jpe?g|gif)$/,
       exclude: /node_modules/,
       use: ['file-loader'],
+    },
+    {
+      test: /\.svg$/,
+      exclude: /node_modules/,
+      use: ['@svgr/webpack'],
     },
     {
       test: /\.(ttf|woff|woff2|eot)$/,
