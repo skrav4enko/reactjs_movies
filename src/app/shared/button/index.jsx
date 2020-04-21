@@ -3,7 +3,7 @@ import { element, string, func } from 'prop-types';
 
 import './styles.scss';
 
-const Button = ({ children, type = 'button', variant, size, onClick }) => {
+const Button = ({ children, type, variant, size, onClick }) => {
   return (
     // eslint-disable-next-line react/button-has-type
     <button className={`button ${variant} ${size}`} type={type} onClick={onClick}>
@@ -22,7 +22,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   children: 'element',
-  type: 'string',
+  type: 'button',
   variant: 'string',
   size: 'string',
   onClick: 'func',

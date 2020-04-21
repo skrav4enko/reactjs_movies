@@ -12,7 +12,7 @@ Rating.propTypes = {
 };
 
 Rating.defaultProps = {
-  value: 'string',
+  value: '-',
 };
 
 export default Rating;

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { func } from 'prop-types';
 
@@ -6,13 +7,7 @@ import movieModel from '../../../models/movie.model';
 
 const MovieCard = ({ movie, navigateTo }) => {
   return (
-    <div
-      className="movie-card"
-      onClick={() => navigateTo(movie.id)}
-      onKeyPress={() => navigateTo(movie.id)}
-      tabIndex="0"
-      role="link"
-    >
+    <div className="movie-card" onClick={() => navigateTo(movie.id)} tabIndex="0" role="link">
       <div className="movie-card__poster">
         <img className="movie-card__img" src={movie.poster_path} alt={movie.title} />
       </div>

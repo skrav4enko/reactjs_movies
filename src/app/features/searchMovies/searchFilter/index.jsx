@@ -1,5 +1,5 @@
 import React from 'react';
-import { func } from 'prop-types';
+import { func, string } from 'prop-types';
 
 import './styles.scss';
 import InputField from '../../../shared/inputField';
@@ -72,13 +72,13 @@ class SearchFilter extends React.Component {
 }
 
 SearchFilter.propTypes = {
-  filterBy: func,
+  filterBy: string,
   handleFilter: func,
   handleFilterBy: func,
 };
 
 SearchFilter.defaultProps = {
-  filterBy: 'func',
+  filterBy: 'string',
   handleFilter: 'func',
   handleFilterBy: 'func',
 };

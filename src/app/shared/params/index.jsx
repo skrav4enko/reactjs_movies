@@ -18,7 +18,7 @@ Params.propTypes = {
 };
 
 Params.defaultProps = {
-  value: 'string',
+  value: 0,
   dimension: 'string',
 };
 

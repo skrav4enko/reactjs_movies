@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Movies should match snapshot with movie 1`] = `ShallowWrapper {}`;
+
+exports[`Search Movies should match snapshot without movie 1`] = `ShallowWrapper {}`;
