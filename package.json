@@ -8,7 +8,7 @@
     "build": "cross-env NODE_ENV=production webpack",
     "build:dev": "cross-env NODE_ENV=development webpack",
     "test": "jest",
-    "test:coverage": "npm run test -- --coverage",
+    "test:coverage": "jest --coverage",
     "e2e": "cypress open",
     "lint": "eslint .",
     "stats": "cross-env NODE_ENV=production webpack --json > stats.json && webpack-bundle-analyzer stats.json"
