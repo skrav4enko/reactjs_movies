@@ -5,6 +5,6 @@
     "browser": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
-  "plugins": ["prettier"]
+  "extends": ["airbnb", "plugin:prettier/recommended"],
+  "ignorePatterns": ["node_modules/", "build/"]
 }

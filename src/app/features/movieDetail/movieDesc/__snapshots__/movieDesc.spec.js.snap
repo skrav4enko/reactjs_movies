@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie Desc should match snapshot 1`] = `
+<div
+  className="movie-desc"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="movie-desc__poster"
+    >
+      <img
+        alt="Tomb Raider"
+        className="movie-desc__img"
+        src="https://image.tmdb.org/t/p/w500/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg"
+      />
+    </div>
+    <div
+      className="movie-desc__content"
+    >
+      <div
+        className="movie-desc__header"
+      >
+        <h2
+          className="movie-desc__title"
+        >
+          Tomb Raider
+        </h2>
+        <Rating
+          value={6.2}
+        />
+      </div>
+      <div
+        className="movie-desc__genres"
+      >
+        Action, Adventure
+      </div>
+      <div
+        className="movie-desc__params"
+      >
+        <Params
+          dimension="year"
+          value="2018"
+        />
+        <Params
+          dimension="min"
+          value={118}
+        />
+      </div>
+      <p
+        className="movie-desc__overview"
+      >
+        Lara Croft, the fiercely independent daughter of a missing adventurer.
+      </p>
+    </div>
+  </div>
+</div>
+`;

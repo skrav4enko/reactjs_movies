@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Results should match snapshot 1`] = `
+<div
+  className="search-results"
+>
+  <div
+    className="container"
+  >
+    <MovieCard
+      key="338970"
+      movie={
+        Object {
+          "budget": 94000000,
+          "genres": Array [
+            "Action",
+            "Adventure",
+          ],
+          "id": 338970,
+          "overview": "Lara Croft, the fiercely independent daughter of a missing adventurer.",
+          "poster_path": "https://image.tmdb.org/t/p/w500/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg",
+          "release_date": "2018-03-08",
+          "revenue": 126025000,
+          "runtime": 118,
+          "tagline": "Her legend begins",
+          "title": "Tomb Raider",
+          "vote_average": 6.2,
+          "vote_count": 817,
+        }
+      }
+      navigateTo={[MockFunction]}
+    />
+  </div>
+</div>
+`;
