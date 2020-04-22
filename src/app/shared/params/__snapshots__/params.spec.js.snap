@@ -1,3 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Params should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`Params should match snapshot 1`] = `
+<div
+  className="params"
+>
+  <span
+    className="params__value"
+  >
+    5
+  </span>
+  <span>
+    test
+  </span>
+</div>
+`;

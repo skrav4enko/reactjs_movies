@@ -1,3 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Movie Card should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`Movie Card should match snapshot 1`] = `
+<div
+  className="movie-card"
+  onClick={[Function]}
+  role="link"
+  tabIndex="0"
+>
+  <div
+    className="movie-card__poster"
+  >
+    <img
+      alt="Tomb Raider"
+      className="movie-card__img"
+      src="https://image.tmdb.org/t/p/w500/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg"
+    />
+  </div>
+  <div
+    className="movie-card__footer"
+  >
+    <div
+      className="movie-card__desc"
+    >
+      <div
+        className="movie-card__title"
+      >
+        Tomb Raider
+      </div>
+      <div
+        className="movie-card__genre"
+      >
+        Action, Adventure
+      </div>
+    </div>
+    <div
+      className="movie-card__date"
+    >
+      2018
+    </div>
+  </div>
+</div>
+`;

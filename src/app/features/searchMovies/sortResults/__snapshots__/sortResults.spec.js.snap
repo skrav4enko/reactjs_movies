@@ -1,3 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sort Results should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`Sort Results should match snapshot 1`] = `
+<div
+  className="sort-results"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="sort-results__count"
+    >
+      string
+    </div>
+    <div
+      className="sort-results__filter"
+    >
+      <span
+        className="sort-results__filter-by"
+      >
+        Sort by
+      </span>
+      <ButtonGroup>
+        <Button
+          onClick={[Function]}
+          size="small"
+          type="button"
+          variant=""
+        >
+          Release date
+        </Button>
+        <Button
+          onClick={[Function]}
+          size="small"
+          type="button"
+          variant="secondary"
+        >
+          Rating
+        </Button>
+      </ButtonGroup>
+    </div>
+  </div>
+</div>
+`;

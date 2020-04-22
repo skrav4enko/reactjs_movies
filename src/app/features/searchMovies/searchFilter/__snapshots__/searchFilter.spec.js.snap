@@ -1,5 +1,119 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchFilter should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`SearchFilter should match snapshot 1`] = `
+<div
+  className="search-filter"
+>
+  <div
+    className="container"
+  >
+    <h1
+      className="search-filter__title"
+    >
+      Find your movie
+    </h1>
+    <form
+      className="search-filter__search"
+      onSubmit={[Function]}
+    >
+      <InputField
+        onChange={[Function]}
+        placeholder="Search"
+        value=""
+      />
+      <Button
+        onClick="func"
+        size="string"
+        type="submit"
+        variant="string"
+      >
+        Search
+      </Button>
+    </form>
+    <div>
+      <span
+        className="search-filter__search-by"
+      >
+        Search by
+      </span>
+      <ButtonGroup>
+        <Button
+          onClick={[Function]}
+          size="small"
+          type="button"
+          variant=""
+        >
+          Title
+        </Button>
+        <Button
+          onClick={[Function]}
+          size="small"
+          type="button"
+          variant="secondary"
+        >
+          Genre
+        </Button>
+      </ButtonGroup>
+    </div>
+  </div>
+</div>
+`;
 
-exports[`SearchFilter should match snapshot 2 1`] = `ShallowWrapper {}`;
+exports[`SearchFilter should match snapshot 2 1`] = `
+<div
+  className="search-filter"
+>
+  <div
+    className="container"
+  >
+    <h1
+      className="search-filter__title"
+    >
+      Find your movie
+    </h1>
+    <form
+      className="search-filter__search"
+      onSubmit={[Function]}
+    >
+      <InputField
+        onChange={[Function]}
+        placeholder="Search"
+        value=""
+      />
+      <Button
+        onClick="func"
+        size="string"
+        type="submit"
+        variant="string"
+      >
+        Search
+      </Button>
+    </form>
+    <div>
+      <span
+        className="search-filter__search-by"
+      >
+        Search by
+      </span>
+      <ButtonGroup>
+        <Button
+          onClick={[Function]}
+          size="small"
+          type="button"
+          variant="secondary"
+        >
+          Title
+        </Button>
+        <Button
+          onClick={[Function]}
+          size="small"
+          type="button"
+          variant=""
+        >
+          Genre
+        </Button>
+      </ButtonGroup>
+    </div>
+  </div>
+</div>
+`;

@@ -1,5 +1,56 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search Movies should match snapshot with movie 1`] = `ShallowWrapper {}`;
+exports[`Search Movies should match snapshot with movie 1`] = `
+<Fragment>
+  <SearchFilter
+    filterBy="title"
+    handleFilter={[MockFunction]}
+    handleFilterBy={[MockFunction]}
+  />
+  <SortResults
+    describe="1 movies found"
+    handleSort={[MockFunction]}
+    sortBy="title"
+  />
+  <SearchResults
+    movies={
+      Array [
+        Object {
+          "budget": 94000000,
+          "genres": Array [
+            "Action",
+            "Adventure",
+          ],
+          "id": 338970,
+          "overview": "Lara Croft, the fiercely independent daughter of a missing adventurer.",
+          "poster_path": "https://image.tmdb.org/t/p/w500/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg",
+          "release_date": "2018-03-08",
+          "revenue": 126025000,
+          "runtime": 118,
+          "tagline": "Her legend begins",
+          "title": "Tomb Raider",
+          "vote_average": 6.2,
+          "vote_count": 817,
+        },
+      ]
+    }
+    navigateTo={[MockFunction]}
+  />
+</Fragment>
+`;
 
-exports[`Search Movies should match snapshot without movie 1`] = `ShallowWrapper {}`;
+exports[`Search Movies should match snapshot without movie 1`] = `
+<Fragment>
+  <SearchFilter
+    filterBy="title"
+    handleFilter={[MockFunction]}
+    handleFilterBy={[MockFunction]}
+  />
+  <SortResults
+    describe="0 movies found"
+    handleSort={[MockFunction]}
+    sortBy="title"
+  />
+  <NoResults />
+</Fragment>
+`;

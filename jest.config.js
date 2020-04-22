@@ -1,8 +1,9 @@
 module.exports = {
   verbose: true,
   testRegex: '(/__tests__/.*|\\.(test|spec))\\.(js|jsx)$',
+  snapshotSerializers: ["enzyme-to-json/serializer"],
   setupFilesAfterEnv: ['<rootDir>/config/jest/setupTests.js'],
-  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/build/'],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/build/', '<rootDir>/cypress/'],
   collectCoverageFrom: ['src/**/*.{js,jsx}'],
   transform: {
     '^.+\\.(js|jsx)$': '<rootDir>/node_modules/babel-jest',

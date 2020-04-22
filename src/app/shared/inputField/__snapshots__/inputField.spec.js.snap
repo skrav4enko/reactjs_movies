@@ -1,3 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InputField should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`InputField should match snapshot 1`] = `
+<input
+  className="input-field"
+  onChange="func"
+  placeholder="string"
+  value="string"
+/>
+`;

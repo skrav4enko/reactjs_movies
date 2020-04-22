@@ -1,3 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`No Results should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`No Results should match snapshot 1`] = `
+<div
+  className="no-result"
+>
+  No films found
+</div>
+`;
