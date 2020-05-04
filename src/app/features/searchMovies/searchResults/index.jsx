@@ -1,6 +1,5 @@
 import React from 'react';
 import { arrayOf } from 'prop-types';
-import { connect } from 'react-redux';
 
 import './styles.scss';
 import MovieCard from '../movieCard';
@@ -26,10 +25,4 @@ SearchResults.defaultProps = {
   movies: 'movies',
 };
 
-const mapStateToProps = (state) => {
-  return {
-    movies: state.movies.movies,
-  };
-};
-
-export default connect(mapStateToProps)(SearchResults);
+export default SearchResults;

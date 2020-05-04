@@ -67,8 +67,7 @@ class Main extends React.Component {
         <Header />
         <main className="content">
           <Switch>
-            <Redirect from="/" exact to="/search" />
-            <Route path="/search" component={SearchMovies} />
+            <Route exact path="/" component={SearchMovies} />
             <Route path="/film/:id" component={MovieDetail} />
             <Route exact path="**" component={NotFound} />
           </Switch>

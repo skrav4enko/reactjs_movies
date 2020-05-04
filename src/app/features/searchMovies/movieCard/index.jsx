@@ -1,16 +1,11 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-import { connect } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './styles.scss';
 import movieModel from '../../../models/movie.model';
 
 const MovieCard = ({ movie }) => {
-  let { id } = useParams();
-
-  console.log(id);
-
   return (
     <Link className="movie-card" to={`film/${movie.id}`}>
       <div className="movie-card__poster">
@@ -35,4 +30,4 @@ MovieCard.defaultProps = {
   movie: 'movie',
 };
 
-export default connect(null, null)(MovieCard);
+export default MovieCard;

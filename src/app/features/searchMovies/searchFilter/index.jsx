@@ -21,10 +21,10 @@ class SearchFilter extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    const { handleFilter } = this.props;
+    const { changeSearch } = this.props;
     const { value } = this.state;
 
-    handleFilter(value);
+    changeSearch(value);
     this.resetState();
   };
 
@@ -36,7 +36,7 @@ class SearchFilter extends React.Component {
 
   render() {
     const { value } = this.state;
-    const { filterBy, handleFilterBy } = this.props;
+    const { searchBy, changeSearchBy } = this.props;
 
     return (
       <div className="search-filter">
@@ -50,16 +50,16 @@ class SearchFilter extends React.Component {
             <span className="search-filter__search-by">Search by</span>
             <ButtonGroup>
               <Button
-                variant={filterBy === 'title' ? '' : 'secondary'}
+                variant={searchBy === 'title' ? '' : 'secondary'}
                 size="small"
-                onClick={() => handleFilterBy('title')}
+                onClick={() => changeSearchBy('title')}
               >
                 Title
               </Button>
               <Button
-                variant={filterBy === 'genres' ? '' : 'secondary'}
+                variant={searchBy === 'genres' ? '' : 'secondary'}
                 size="small"
-                onClick={() => handleFilterBy('genres')}
+                onClick={() => changeSearchBy('genres')}
               >
                 Genre
               </Button>
@@ -72,15 +72,15 @@ class SearchFilter extends React.Component {
 }
 
 SearchFilter.propTypes = {
-  filterBy: string,
-  handleFilter: func,
-  handleFilterBy: func,
+  searchBy: string,
+  changeSearch: func,
+  changeSearchBy: func,
 };
 
 SearchFilter.defaultProps = {
-  filterBy: 'string',
-  handleFilter: 'func',
-  handleFilterBy: 'func',
+  searchBy: 'string',
+  changeSearch: 'func',
+  changeSearchBy: 'func',
 };
 
 export default SearchFilter;

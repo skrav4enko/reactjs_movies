@@ -11,7 +11,7 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <Logo />
-        <NavLink className="header__icon" exact to="/search">
+        <NavLink className="header__icon" exact to="/">
           <SearchIcon />
         </NavLink>
       </div>

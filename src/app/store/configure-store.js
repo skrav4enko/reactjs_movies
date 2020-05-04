@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import { createStore, compose } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 
 import rootReducer from './root-reducer';
 
@@ -10,6 +10,6 @@ if (process.browser && process.env.NODE_ENV !== 'production' && window.__REDUX_D
   devTools = window.__REDUX_DEVTOOLS_EXTENSION__();
 }
 
-const configureStore = (initialState = {}) => createStore(rootReducer, initialState, compose(devTools));
+const configureStore = (sagaMiddleware) => createStore(rootReducer, compose(applyMiddleware(sagaMiddleware), devTools));
 
 export default configureStore;
