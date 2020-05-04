@@ -43,7 +43,7 @@ class SearchFilter extends React.Component {
         <div className="container">
           <h1 className="search-filter__title">Find your movie</h1>
           <form className="search-filter__search" onSubmit={this.handleSubmit}>
-            <InputField placeholder="Search" value={value} onChange={this.handleChange} onKeyUp={this.onKeyUp} />
+            <InputField placeholder="Search" id="search" name="search" value={value} onChange={this.handleChange} />
             <Button type="submit">Search</Button>
           </form>
           <div>

@@ -1,30 +1,22 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-import { func } from 'prop-types';
+import { NavLink } from 'react-router-dom';
+import SearchIcon from '../../../assets/icons/search-24px.svg';
 
 import './styles.scss';
 import Logo from '../../shared/logo';
-import SearchIcon from '../../../assets/icons/search-24px.svg';
 
-const Header = ({ navigateTo }) => {
+const Header = () => {
   return (
     <header className="header">
       <div className="container">
         <Logo />
-        <span className="header__icon" onClick={() => navigateTo('main')} tabIndex="0" role="link">
+        <NavLink className="header__icon" exact to="/search">
           <SearchIcon />
-        </span>
+        </NavLink>
       </div>
     </header>
   );
-};
-
-Header.propTypes = {
-  navigateTo: func,
-};
-
-Header.defaultProps = {
-  navigateTo: 'func',
 };
 
 export default Header;

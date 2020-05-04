@@ -1,5 +1,16 @@
 .movie-card {
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+
+  &:link,
+  &:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &__poster {
+    flex: 1 0 auto;
+  }
 
   &__img {
     display: block;
@@ -8,6 +19,7 @@
   }
 
   &__footer {
+    flex: 0 0 auto;
     display: flex;
     align-items: flex-start;
     padding: 25px 0;

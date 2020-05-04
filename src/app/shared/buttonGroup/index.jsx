@@ -1,5 +1,5 @@
 import React from 'react';
-import { element } from 'prop-types';
+import { element, arrayOf } from 'prop-types';
 
 import './styles.scss';
 
@@ -8,7 +8,7 @@ const ButtonGroup = ({ children }) => {
 };
 
 ButtonGroup.propTypes = {
-  children: element,
+  children: arrayOf(element),
 };
 
 ButtonGroup.defaultProps = {

@@ -17,7 +17,7 @@ module.exports = (options) => {
         chunks: 'all',
       },
     },
-    devtool: 'source-map',
+    devtool: 'inline-source-map',
     devServer: {
       port: 3000,
       hot: true,
