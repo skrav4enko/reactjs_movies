@@ -19,7 +19,7 @@ const SearchMovies = () => {
   return (
     <>
       <SearchFilter searchBy={searchBy} changeSearchBy={changeSearchBy} changeSearch={changeSearch} />
-      <SortResults describe={`${movies.length} movies found`} sortBy={sortBy} handleSort={changeSortBy} />
+      <SortResults describe={`${movies.length} movies found`} sortBy={sortBy} changeSortBy={changeSortBy} />
       {movies.length ? <SearchResult movies={movies} /> : <NoResults />}
     </>
   );

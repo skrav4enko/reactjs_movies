@@ -1,49 +1,27 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { arrayOf, string, func } from 'prop-types';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import './styles.scss';
 import SearchResult from '../searchMovies/searchResults';
 import MovieDesc from './movieDesc';
 import SortResults from '../searchMovies/sortResults';
-import movieModel from '../../models/movie.model';
+import useMovies from '../searchMovies/useMovies';
 
-const MovieDetail = ({ movie, movies, sortBy, handleSort }) => {
+const MovieDetail = () => {
+  const { getMovie, movies, selectedMovie } = useMovies();
+  const { id } = useParams();
+
+  useEffect(() => {
+    getMovie(id);
+  }, [getMovie]);
+
   return (
     <>
-      <MovieDesc movie={movie} />
-      <SortResults describe={`Film by ${movie.genres[0]} genre`} sortBy={sortBy} handleSort={handleSort} />
+      <MovieDesc movie={selectedMovie} />
+      <SortResults describe={`Film by ${selectedMovie && selectedMovie.genres[0]} genre`} withSort={false} />
       <SearchResult movies={movies} />
     </>
   );
 };
 
-MovieDetail.propTypes = {
-  movie: movieModel,
-  movies: arrayOf(movieModel),
-  sortBy: string,
-  handleSort: func,
-};
-
-MovieDetail.defaultProps = {
-  movie: 'movie',
-  movies: 'movies',
-  sortBy: 'sort',
-  handleSort: 'func',
-};
-
-const mapStateToProps = (state) => {
-  return {
-    movies: state.movies.movies,
-    movie: state.movies.movies[0],
-  };
-};
-
-// const mapPropsToDispatch = (state) => {
-//   return {
-//     sortBy: state.movies.movies,
-//     handleSort: state.movies.movies[0],
-//   };
-// };
-
-export default connect(mapStateToProps, null)(MovieDetail);
+export default MovieDetail;

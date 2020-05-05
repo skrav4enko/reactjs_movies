@@ -6,7 +6,7 @@ import Params from '../../../shared/params';
 import movieModel from '../../../models/movie.model';
 
 const MovieDesc = ({ movie }) => {
-  return (
+  return movie ? (
     <div className="movie-desc">
       <div className="container">
         <div className="movie-desc__poster">
@@ -26,7 +26,7 @@ const MovieDesc = ({ movie }) => {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 MovieDesc.propTypes = {

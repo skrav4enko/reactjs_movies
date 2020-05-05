@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import { SEARCH_VALUE, SEARCH_BY, SORT_BY } from './search.actions';
 
 const initialState = {
@@ -6,7 +7,7 @@ const initialState = {
   sortBy: undefined,
 };
 
-const searchReducer = (state = initialState, action) => {
+export const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEARCH_VALUE:
       return { ...state, search: action.payload };
@@ -18,5 +19,3 @@ const searchReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default searchReducer;
