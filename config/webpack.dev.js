@@ -21,8 +21,6 @@ module.exports = (options) => {
     devServer: {
       port: 3000,
       hot: true,
-      compress: true,
-      publicPath: '/',
     },
   };
 };
