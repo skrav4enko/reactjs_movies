@@ -5,8 +5,8 @@ import SearchFilter from './searchFilter';
 import SearchResult from './searchResults';
 import NoResults from './noResults';
 import SortResults from './sortResults';
-import useMovies from './useMovies';
-import useSearch from './useSearch';
+import useMovies from '../../hooks/useMovies';
+import useSearch from '../../hooks/useSearch';
 
 const SearchMovies = () => {
   const { getMovies, movies } = useMovies();

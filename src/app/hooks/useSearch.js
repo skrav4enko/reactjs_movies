@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { changeSortByAction, changeSearchByAction, changeSearchAction } from '../../store/search/search.actions';
+import { changeSortByAction, changeSearchByAction, changeSearchAction } from '../store/search/search.actions';
 
 /** Custom hook for accessing Search state in redux store */
 function useSearch() {

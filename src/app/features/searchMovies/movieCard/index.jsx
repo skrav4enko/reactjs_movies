@@ -7,7 +7,7 @@ import movieModel from '../../../models/movie.model';
 
 const MovieCard = ({ movie }) => {
   return (
-    <Link className="movie-card" to={`film/${movie.id}`}>
+    <Link className="movie-card" to={`/film/${movie.id}`}>
       <div className="movie-card__poster">
         <img className="movie-card__img" src={movie.poster_path} alt={movie.title} />
       </div>

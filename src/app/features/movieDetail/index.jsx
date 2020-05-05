@@ -5,7 +5,7 @@ import './styles.scss';
 import SearchResult from '../searchMovies/searchResults';
 import MovieDesc from './movieDesc';
 import SortResults from '../searchMovies/sortResults';
-import useMovies from '../searchMovies/useMovies';
+import useMovies from '../../hooks/useMovies';
 
 const MovieDetail = () => {
   const { getMovie, movies, selectedMovie } = useMovies();
