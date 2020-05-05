@@ -4,8 +4,12 @@ import { parseList, parseItem } from '../actions-utils';
 /* eslint-disable import/prefer-default-export */
 const BASE_API_URL = 'https://reactjs-cdp.herokuapp.com';
 
-export const loadMoviesApi = async () => {
-  const response = await axios.get(`${BASE_API_URL}/movies`);
+export const loadMoviesApi = async (params) => {
+  console.log(params);
+
+  const response = await axios.get(`${BASE_API_URL}/movies`, {
+    params,
+  });
 
   return parseList(response, 200);
 };

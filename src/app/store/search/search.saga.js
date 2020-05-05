@@ -2,12 +2,19 @@ import { takeEvery, all, select } from 'redux-saga/effects';
 
 import { SEARCH_VALUE, SEARCH_BY, SORT_BY } from './search.actions';
 import { getSearchState } from './search.selectors';
+import { loadingMoviesAsync } from '../movies/movies.saga';
 
 export function* startSearchMoviesAsync() {
-  const { search } = yield select(getSearchState);
+  const { search, searchBy, sortBy } = yield select(getSearchState);
 
   if (search) {
-    // TODO
+    const params = {
+      search,
+      searchBy,
+      sortBy,
+    };
+
+    yield loadingMoviesAsync({ payload: params });
   }
 }
 

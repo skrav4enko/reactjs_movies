@@ -10,9 +10,9 @@ import {
   LOAD_MOVIE_ERROR,
 } from './movies.actions';
 
-export function* loadingMoviesAsync() {
+export function* loadingMoviesAsync({ payload }) {
   try {
-    const data = yield call(loadMoviesApi);
+    const data = yield call(loadMoviesApi, payload);
 
     const movies = [...data];
 
@@ -30,8 +30,13 @@ export function* loadMovieAsync({ payload }) {
   try {
     const data = yield call(loadMovieByIdApi, payload);
     const movie = data;
-
     yield put({ type: LOAD_MOVIE_SUCCESS, payload: movie });
+
+    const params = {
+      filter: movie.genres[0],
+    };
+
+    yield loadingMoviesAsync({ payload: params });
   } catch (err) {
     yield put({ type: LOAD_MOVIE_ERROR, payload: err.message });
   }
