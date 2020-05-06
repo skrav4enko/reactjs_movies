@@ -28,7 +28,6 @@ exports[`Search Results should match snapshot 1`] = `
           "vote_count": 817,
         }
       }
-      navigateTo={[MockFunction]}
     />
   </div>
 </div>
