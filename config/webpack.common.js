@@ -54,6 +54,7 @@ module.exports = (mode) => {
     output: {
       path: path.resolve('build'),
       filename: fileNameOutput({ isDevelopment, ext: 'js' }),
+      publicPath: '/',
     },
     resolve: {
       extensions: ['.js', '.jsx'],

@@ -3,8 +3,11 @@
 exports[`InputField should match snapshot 1`] = `
 <input
   className="input-field"
+  id="string"
+  name="string"
   onChange="func"
   placeholder="string"
+  type="string"
   value="string"
 />
 `;

@@ -1,41 +1,28 @@
-import React from 'react';
-import { arrayOf, func, string } from 'prop-types';
+import React, { useEffect } from 'react';
 
 import './styles.scss';
 import SearchFilter from './searchFilter';
 import SearchResult from './searchResults';
 import NoResults from './noResults';
 import SortResults from './sortResults';
-import movieModel from '../../models/movie.model';
+import useMovies from '../../hooks/useMovies';
+import useSearch from '../../hooks/useSearch';
 
-const SearchMovies = ({ movies, sortBy, filterBy, navigateTo, handleSort, handleFilterBy, handleFilter }) => {
+const SearchMovies = () => {
+  const { getMovies, movies } = useMovies();
+  const { searchBy, sortBy, changeSearchBy, changeSortBy, changeSearch } = useSearch();
+
+  useEffect(() => {
+    getMovies();
+  }, [getMovies]);
+
   return (
     <>
-      <SearchFilter filterBy={filterBy} handleFilterBy={handleFilterBy} handleFilter={handleFilter} />
-      <SortResults describe={`${movies.length} movies found`} sortBy={sortBy} handleSort={handleSort} />
-      {movies.length ? <SearchResult movies={movies} navigateTo={navigateTo} /> : <NoResults />}
+      <SearchFilter searchBy={searchBy} changeSearchBy={changeSearchBy} changeSearch={changeSearch} />
+      <SortResults describe={`${movies.length} movies found`} sortBy={sortBy} changeSortBy={changeSortBy} />
+      {movies.length ? <SearchResult movies={movies} /> : <NoResults />}
     </>
   );
-};
-
-SearchMovies.propTypes = {
-  movies: arrayOf(movieModel),
-  sortBy: string,
-  filterBy: string,
-  navigateTo: func,
-  handleSort: func,
-  handleFilterBy: func,
-  handleFilter: func,
-};
-
-SearchMovies.defaultProps = {
-  movies: 'movies',
-  sortBy: 'string',
-  filterBy: 'string',
-  navigateTo: 'func',
-  handleSort: 'func',
-  handleFilterBy: 'func',
-  handleFilter: 'func',
 };
 
 export default SearchMovies;

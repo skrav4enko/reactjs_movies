@@ -8,14 +8,13 @@ exports[`Header should match snapshot 1`] = `
     className="container"
   >
     <Logo />
-    <span
+    <NavLink
       className="header__icon"
-      onClick={[Function]}
-      role="link"
-      tabIndex="0"
+      exact={true}
+      to="/"
     >
       <search-24px.svg />
-    </span>
+    </NavLink>
   </div>
 </header>
 `;

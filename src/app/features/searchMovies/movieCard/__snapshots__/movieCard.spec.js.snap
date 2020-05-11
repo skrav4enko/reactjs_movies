@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Movie Card should match snapshot 1`] = `
-<div
+<Link
   className="movie-card"
-  onClick={[Function]}
-  role="link"
-  tabIndex="0"
+  to="/film/338970"
 >
   <div
     className="movie-card__poster"
@@ -39,5 +37,5 @@ exports[`Movie Card should match snapshot 1`] = `
       2018
     </div>
   </div>
-</div>
+</Link>
 `;

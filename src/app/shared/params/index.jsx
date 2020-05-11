@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, number } from 'prop-types';
+import { string } from 'prop-types';
 
 import './styles.scss';
 
@@ -13,12 +13,12 @@ const Params = ({ value, dimension }) => {
 };
 
 Params.propTypes = {
-  value: number,
+  value: string,
   dimension: string,
 };
 
 Params.defaultProps = {
-  value: 0,
+  value: '0',
   dimension: 'string',
 };
 

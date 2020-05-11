@@ -9,7 +9,6 @@
     "build:dev": "cross-env NODE_ENV=development webpack",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "e2e": "cypress open",
     "lint": "eslint .",
     "stats": "cross-env NODE_ENV=production webpack --json > stats.json && webpack-bundle-analyzer stats.json"
   },
@@ -32,7 +31,6 @@
     "copy-webpack-plugin": "^5.1.1",
     "cross-env": "^7.0.2",
     "css-loader": "^3.4.2",
-    "cypress": "^4.3.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
@@ -68,11 +66,14 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
+    "redux-saga": "^1.1.3"
   }
 }

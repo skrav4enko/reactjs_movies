@@ -21,10 +21,15 @@
     height: 32px;
     width: 32px;
 
+    &.active {
+      display: none;
+    }
+
     svg {
       display: block;
       height: 100%;
       width: 100%;
     }
+
   }
 }

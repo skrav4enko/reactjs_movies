@@ -1,36 +1,28 @@
-import React from 'react';
-import { arrayOf, string, func } from 'prop-types';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import './styles.scss';
 import SearchResult from '../searchMovies/searchResults';
 import MovieDesc from './movieDesc';
 import SortResults from '../searchMovies/sortResults';
-import movieModel from '../../models/movie.model';
+import useMovies from '../../hooks/useMovies';
 
-const MovieDetail = ({ movie, movies, sortBy, navigateTo, handleSort }) => {
+const MovieDetail = () => {
+  const { getMovie, movies, selectedMovie } = useMovies();
+  const { id } = useParams();
+
+  useEffect(() => {
+    console.log(id);
+    getMovie(id);
+  }, [id]);
+
   return (
     <>
-      <MovieDesc movie={movie} />
-      <SortResults describe={`Film by ${movie.genres[0]} genre`} sortBy={sortBy} handleSort={handleSort} />
-      <SearchResult movies={movies} navigateTo={navigateTo} />
+      <MovieDesc movie={selectedMovie} />
+      <SortResults describe={`Film by ${selectedMovie && selectedMovie.genres[0]} genre`} withSort={false} />
+      <SearchResult movies={movies} />
     </>
   );
-};
-
-MovieDetail.propTypes = {
-  movie: movieModel,
-  movies: arrayOf(movieModel),
-  sortBy: string,
-  navigateTo: func,
-  handleSort: func,
-};
-
-MovieDetail.defaultProps = {
-  movie: 'movie',
-  movies: 'movies',
-  sortBy: 'sort',
-  navigateTo: 'func',
-  handleSort: 'func',
 };
 
 export default MovieDetail;
