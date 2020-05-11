@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import './styles.scss';
 import Header from '../../core/header';
@@ -14,7 +14,8 @@ const Main = () => {
       <Header />
       <main className="content">
         <Switch>
-          <Route exact path="/" component={SearchMovies} />
+          <Redirect exact from="/" to="/search" />
+          <Route path="/search" component={SearchMovies} />
           <Route path="/film/:id" component={MovieDetail} />
           <Route exact path="**" component={NotFound} />
         </Switch>

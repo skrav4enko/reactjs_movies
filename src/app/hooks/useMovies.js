@@ -13,7 +13,7 @@ function useMovies() {
 
     // Dispatchers
     // Wrap any dispatcher that could be called within a useEffect() in a useCallback()
-    getMovies: useCallback(() => dispatch(loadMoviesAction()), [dispatch]), // called within a useEffect()
+    getMovies: useCallback((params) => dispatch(loadMoviesAction(params)), [dispatch]), // called within a useEffect()
     getMovie: useCallback((id) => dispatch(loadMovieAction(id)), [dispatch]), // called within a useEffect()
   };
 }
