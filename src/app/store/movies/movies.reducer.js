@@ -6,6 +6,7 @@ import {
   LOAD_MOVIE,
   LOAD_MOVIE_SUCCESS,
   LOAD_MOVIE_ERROR,
+  RESET_MOVIES_STATE,
 } from './movies.actions';
 
 const initialMoviesState = {
@@ -22,6 +23,8 @@ export const moviesReducer = (state = initialMoviesState, action) => {
       return { ...state, loading: false, data: [...action.payload] };
     case LOAD_MOVIES_ERROR:
       return { ...state, loading: false, error: action.payload };
+    case RESET_MOVIES_STATE:
+      return { ...state, loading: false, data: [...action.payload] };
 
     default:
       return state;

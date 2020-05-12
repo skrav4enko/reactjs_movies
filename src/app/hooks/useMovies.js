@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadMoviesAction, loadMovieAction } from '../store/movies/movies.actions';
+import { loadMoviesAction, loadMovieAction, resetMoviesAction } from '../store/movies/movies.actions';
 
 /** Custom hook for accessing Movies state in redux store */
 function useMovies() {
@@ -15,6 +15,7 @@ function useMovies() {
     // Wrap any dispatcher that could be called within a useEffect() in a useCallback()
     getMovies: useCallback((params) => dispatch(loadMoviesAction(params)), [dispatch]), // called within a useEffect()
     getMovie: useCallback((id) => dispatch(loadMovieAction(id)), [dispatch]), // called within a useEffect()
+    resetMovies: useCallback(() => dispatch(resetMoviesAction()), [dispatch]), // called within a useEffect()
   };
 }
 
