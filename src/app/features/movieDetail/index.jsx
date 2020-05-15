@@ -12,7 +12,6 @@ const MovieDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log(id);
     getMovie(id);
   }, [id]);
 

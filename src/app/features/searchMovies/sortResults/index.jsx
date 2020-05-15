@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import { func, string, bool } from 'prop-types';
 
 import './styles.scss';
@@ -6,6 +7,21 @@ import Button from '../../../shared/button';
 import ButtonGroup from '../../../shared/buttonGroup';
 
 const SortResults = ({ describe, sortBy, changeSortBy, withSort }) => {
+  const location = useLocation();
+  const history = useHistory();
+
+  function handleSortBy(value) {
+    const { search } = location;
+    const params = new URLSearchParams(search.substring(1));
+    params.set('sortBy', value);
+    history.push({
+      pathname: '/search',
+      search: params.toString(),
+    });
+
+    changeSortBy(value);
+  }
+
   return (
     <div className="sort-results">
       <div className="container">
@@ -17,14 +33,14 @@ const SortResults = ({ describe, sortBy, changeSortBy, withSort }) => {
               <Button
                 variant={sortBy === 'release_date' ? '' : 'secondary'}
                 size="small"
-                onClick={() => changeSortBy('release_date')}
+                onClick={() => handleSortBy('release_date')}
               >
                 Release date
               </Button>
               <Button
                 variant={sortBy === 'vote_average' ? '' : 'secondary'}
                 size="small"
-                onClick={() => changeSortBy('vote_average')}
+                onClick={() => handleSortBy('vote_average')}
               >
                 Rating
               </Button>
