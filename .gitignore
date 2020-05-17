@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/.pnp
+.pnp.js
 
 # compiled output
 /build
@@ -9,6 +11,10 @@
 /tmp
 /out-tsc
 stats.json
+
+# next.js
+/.next
+/out
 
 # testing
 /coverage

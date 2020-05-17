@@ -10,12 +10,15 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "lint": "eslint .",
-    "stats": "cross-env NODE_ENV=production webpack --json > stats.json && webpack-bundle-analyzer stats.json"
+    "stats": "cross-env NODE_ENV=production webpack --json > stats.json && webpack-bundle-analyzer stats.json",
+    "dev:ssr": "next",
+    "build:ssr": "next build",
+    "start:ssr": "next start"
   },
   "author": "Sergey",
   "license": "ISC",
   "engines": {
-    "node": ">=8.10",
+    "node": ">=10.13",
     "npm": ">=5.2"
   },
   "devDependencies": {
@@ -67,6 +70,9 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "next": "^9.4.0",
+    "next-redux-saga": "^4.1.2",
+    "next-redux-wrapper": "^6.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
