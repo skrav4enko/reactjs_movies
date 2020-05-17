@@ -1,11 +1,11 @@
 import React from 'react';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 
 const Logo = () => {
   return (
-    <div className="logo">
-      <span className="logo--main">netflix</span>
+    <div className={styles.logo}>
+      <span className={styles.logo__main}>netflix</span>
       <span>roulette</span>
     </div>
   );

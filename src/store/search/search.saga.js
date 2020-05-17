@@ -21,6 +21,4 @@ export function* watchSearchValueAsync() {
   yield takeEvery(SEARCH_VALUE, startSearchMoviesAsync);
 }
 
-export function* searchSaga() {
-  yield all([watchSearchValueAsync()]);
-}
+export const searchSaga = [watchSearchValueAsync()];

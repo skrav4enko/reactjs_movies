@@ -1,14 +1,14 @@
 import React from 'react';
 import { arrayOf } from 'prop-types';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 import MovieCard from '../movieCard';
 import movieModel from '../../models/movie.model';
 
 const SearchResults = ({ movies }) => {
   return (
-    <div className="search-results">
-      <div className="container">
+    <div className={styles.searchResults}>
+      <div className={styles.container}>
         {movies.map((movie) => {
           return <MovieCard key={movie.id} movie={movie} />;
         })}

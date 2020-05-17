@@ -46,6 +46,4 @@ export function* watchLoadMovieAsync() {
   yield takeEvery(LOAD_MOVIE, loadMovieAsync);
 }
 
-export function* moviesSaga() {
-  yield all([watchLoadingMoviesAsync(), watchLoadMovieAsync()]);
-}
+export const moviesSaga = [watchLoadingMoviesAsync(), watchLoadMovieAsync()];

@@ -1,19 +1,21 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import Link from 'next/link';
 import SearchIcon from '../../../public/assets/icons/search-24px.svg';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 import Logo from '../shared/logo';
 
 const Header = () => {
   return (
-    <header className="header">
-      <div className="container">
+    <header className={styles.header}>
+      <div className={styles.container}>
         <Logo />
-        <NavLink className="header__icon" exact to="/">
-          <SearchIcon />
-        </NavLink>
+        <Link href="/">
+          <a className={styles.header__icon}>
+            <SearchIcon />
+          </a>
+        </Link>
       </div>
     </header>
   );

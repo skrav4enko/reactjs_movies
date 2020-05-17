@@ -1,12 +1,12 @@
 import React from 'react';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 import Logo from '../shared/logo';
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="container">
+    <footer className={styles.footer}>
+      <div className={styles.container}>
         <Logo />
       </div>
     </footer>

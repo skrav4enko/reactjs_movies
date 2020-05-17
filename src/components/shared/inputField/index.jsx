@@ -1,12 +1,12 @@
 import React from 'react';
 import { string, func } from 'prop-types';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 
 const InputField = ({ placeholder, name, id, type = 'text', value, onChange }) => {
   return (
     <input
-      className="input-field"
+      className={styles.inputField}
       id={id}
       name={name}
       type={type}

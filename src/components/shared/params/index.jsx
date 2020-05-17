@@ -1,12 +1,12 @@
 import React from 'react';
 import { string } from 'prop-types';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 
 const Params = ({ value, dimension }) => {
   return (
-    <div className="params">
-      <span className="params__value">{value}</span>
+    <div className={styles.params}>
+      <span className={styles.params__value}>{value}</span>
       <span>{dimension}</span>
     </div>
   );

@@ -1,10 +1,10 @@
 import React from 'react';
 import { string } from 'prop-types';
 
-import './styles.scss';
+import styles from './styles.module.scss';
 
 const Rating = ({ value }) => {
-  return <div className="rating">{value}</div>;
+  return <div className={styles.rating}>{value}</div>;
 };
 
 Rating.propTypes = {
