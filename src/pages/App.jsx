@@ -2,9 +2,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-import MainLayout from './components/mainLayout';
-import ErrorBoundary from './components/shared/errorBoundary';
-import createdStore from './store/configure-store';
+import MainLayout from '../components/mainLayout';
+import ErrorBoundary from '../components/shared/errorBoundary';
+import createdStore from '../store/configure-store';
 
 const store = createdStore;
 

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import SearchIcon from '../../../assets/icons/search-24px.svg';
+import SearchIcon from '../../../public/assets/icons/search-24px.svg';
 
 import './styles.scss';
 import Logo from '../shared/logo';
