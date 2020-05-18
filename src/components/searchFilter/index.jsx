@@ -1,17 +1,16 @@
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
-
-import styles from './styles.module.scss';
-import InputField from '../shared/inputField';
+import useSearch from '../../hooks/useSearch';
 import Button from '../shared/button';
 import ButtonGroup from '../shared/buttonGroup';
-import useSearch from '../../hooks/useSearch';
+import InputField from '../shared/inputField';
+import styles from './styles.module.scss';
 
 const SearchFilter = () => {
   const [searchValue, setSearchValue] = useState('');
   const { searchBy, changeSearchBy, changeSearch } = useSearch();
-  // const location = useLocation();
-  // const history = useHistory();
+  const router = useRouter();
+  const { query } = router;
 
   function handleChange(event) {
     setSearchValue(event.target.value);
@@ -19,30 +18,24 @@ const SearchFilter = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // if (searchValue) {
-    //   const { search } = location;
-    //   const params = new URLSearchParams(search.substring(1));
-    //   params.set('search', searchValue);
-    //   history.push({
-    //     pathname: '/search',
-    //     search: params.toString(),
-    //   });
-    // }
+    if (searchValue) {
+      router.push({
+        pathname: '/search',
+        query: { ...query, search: encodeURIComponent(searchValue.toString()) },
+      });
+    }
 
-    changeSearch(searchValue);
+    // changeSearch(searchValue);
     setSearchValue('');
   }
 
   function handleSearchBy(value) {
-    // const { search } = location;
-    // const params = new URLSearchParams(search.substring(1));
-    // params.set('searchBy', value);
-    // history.push({
-    //   pathname: '/search',
-    //   search: params.toString(),
-    // });
+    router.push({
+      pathname: '/search',
+      query: { ...query, searchBy: encodeURIComponent(value.toString()) },
+    });
 
-    changeSearchBy(value);
+    // changeSearchBy(value);
   }
 
   return (

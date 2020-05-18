@@ -3,6 +3,7 @@ import App from 'next/app';
 import React from 'react';
 import { END } from 'redux-saga';
 import { wrapper } from '../store/configure-store';
+import ErrorBoundary from '../components/shared/errorBoundary';
 
 import '../styles/global.scss';
 
@@ -27,7 +28,11 @@ class MyApp extends App {
 
   render() {
     const { Component, pageProps } = this.props;
-    return <Component {...pageProps} />;
+    return (
+      <ErrorBoundary>
+        <Component {...pageProps} />
+      </ErrorBoundary>
+    );
   }
 }
 

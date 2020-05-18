@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import { func, string, bool } from 'prop-types';
 
 import styles from './styles.module.scss';
@@ -7,19 +7,16 @@ import Button from '../shared/button';
 import ButtonGroup from '../shared/buttonGroup';
 
 const SortResults = ({ describe, sortBy, changeSortBy, withSort }) => {
-  // const location = useLocation();
-  // const history = useHistory();
+  const router = useRouter();
+  const { query } = router;
 
   function handleSortBy(value) {
-    // const { search } = location;
-    // const params = new URLSearchParams(search.substring(1));
-    // params.set('sortBy', value);
-    // history.push({
-    //   pathname: '/search',
-    //   search: params.toString(),
-    // });
+    router.push({
+      pathname: '/search',
+      query: { ...query, sortBy: encodeURIComponent(value.toString()) },
+    });
 
-    changeSortBy(value);
+    // changeSortBy(value);
   }
 
   return (

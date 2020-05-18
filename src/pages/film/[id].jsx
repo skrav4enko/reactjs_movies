@@ -1,27 +1,28 @@
-import React, { useEffect } from 'react';
-import { useRouter } from 'next/router';
-
-import SearchResult from '../../components/searchResults';
+import React from 'react';
+import Layout from '../../components/layout';
 import MovieDesc from '../../components/movieDesc';
+import MovieList from '../../components/movieList';
+import NoResults from '../../components/noResults';
 import SortResults from '../../components/sortResults';
 import useMovies from '../../hooks/useMovies';
-import Layout from '../../components/layout';
+import { loadMovieAction } from '../../store/movies/movies.actions';
 
 const MovieDetail = () => {
-  const { getMovie, movies, selectedMovie } = useMovies();
-  const router = useRouter();
-
-  // useEffect(() => {
-  //   getMovie(id);
-  // }, [id]);
+  const { movies, selectedMovie } = useMovies();
 
   return (
     <Layout>
       <MovieDesc movie={selectedMovie} />
       <SortResults describe={`Film by ${selectedMovie && selectedMovie.genres[0]} genre`} withSort={false} />
-      <SearchResult movies={movies} />
+      {movies.length ? <MovieList movies={movies} /> : <NoResults />}
     </Layout>
   );
+};
+
+MovieDetail.getInitialProps = async ({ query: { id }, store }) => {
+  store.dispatch(loadMovieAction(id));
+
+  return {};
 };
 
 export default MovieDetail;

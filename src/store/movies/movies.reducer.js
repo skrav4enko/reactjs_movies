@@ -12,7 +12,7 @@ import {
 const initialMoviesState = {
   loading: false,
   data: [],
-  error: undefined,
+  error: '',
 };
 
 export const moviesReducer = (state = initialMoviesState, action) => {
@@ -34,7 +34,7 @@ export const moviesReducer = (state = initialMoviesState, action) => {
 const initialMovieState = {
   loading: false,
   data: null,
-  error: undefined,
+  error: '',
 };
 
 export const movieReducer = (state = initialMovieState, action) => {

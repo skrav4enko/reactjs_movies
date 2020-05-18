@@ -1,12 +1,7 @@
-.movie-card {
+.movieCard {
   display: flex;
   flex-direction: column;
-
-  &:link,
-  &:visited {
-    color: inherit;
-    text-decoration: none;
-  }
+  cursor: pointer;
 
   &__poster {
     flex: 1 0 auto;

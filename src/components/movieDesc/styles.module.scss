@@ -3,7 +3,8 @@
     url('/assets/images/movies_scatch_large.jpg');
   background-position: center;
   background-repeat: no-repeat;
-  height: 526px;
+  min-height: 260px;
+  max-height: 520px;
   overflow: hidden;
   padding-top: 70px;
   padding-bottom: 70px;
