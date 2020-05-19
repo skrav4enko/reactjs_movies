@@ -1,22 +1,21 @@
-import React from 'react';
 import { useRouter } from 'next/router';
-import { func, string, bool } from 'prop-types';
-
-import styles from './styles.module.scss';
+import { bool, string } from 'prop-types';
+import React from 'react';
 import Button from '../shared/button';
 import ButtonGroup from '../shared/buttonGroup';
+import styles from './styles.module.scss';
 
-const SortResults = ({ describe, sortBy, changeSortBy, withSort }) => {
+const SortResults = ({ describe, sortBy, withSort }) => {
   const router = useRouter();
   const { query } = router;
 
   function handleSortBy(value) {
+    const searchQuery = { ...query, sortBy: encodeURI(value.toString()) };
+
     router.push({
       pathname: '/search',
-      query: { ...query, sortBy: encodeURIComponent(value.toString()) },
+      query: searchQuery,
     });
-
-    // changeSortBy(value);
   }
 
   return (
@@ -53,14 +52,12 @@ SortResults.propTypes = {
   describe: string,
   withSort: bool,
   sortBy: string,
-  changeSortBy: func,
 };
 
 SortResults.defaultProps = {
   describe: 'string',
   sortBy: 'string',
   withSort: true,
-  changeSortBy: 'func',
 };
 
 export default SortResults;

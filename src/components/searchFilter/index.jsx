@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+
 import useSearch from '../../hooks/useSearch';
 import Button from '../shared/button';
 import ButtonGroup from '../shared/buttonGroup';
@@ -8,7 +9,7 @@ import styles from './styles.module.scss';
 
 const SearchFilter = () => {
   const [searchValue, setSearchValue] = useState('');
-  const { searchBy, changeSearchBy, changeSearch } = useSearch();
+  const { searchBy } = useSearch();
   const router = useRouter();
   const { query } = router;
 
@@ -19,23 +20,29 @@ const SearchFilter = () => {
   function handleSubmit(event) {
     event.preventDefault();
     if (searchValue) {
-      router.push({
-        pathname: '/search',
-        query: { ...query, search: encodeURIComponent(searchValue.toString()) },
-      });
+      const searchQuery = { ...query, search: encodeURI(searchValue.toString()) };
+      const params = new URLSearchParams(searchQuery).toString();
+
+      router.push(
+        {
+          pathname: '/search',
+          query: searchQuery,
+        },
+        `/search?${params}`,
+        { getInitialProps: true }
+      );
     }
 
-    // changeSearch(searchValue);
     setSearchValue('');
   }
 
   function handleSearchBy(value) {
+    const searchQuery = { ...query, searchBy: encodeURI(value.toString()) };
+
     router.push({
       pathname: '/search',
-      query: { ...query, searchBy: encodeURIComponent(value.toString()) },
+      query: searchQuery,
     });
-
-    // changeSearchBy(value);
   }
 
   return (

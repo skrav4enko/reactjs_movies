@@ -20,9 +20,9 @@ const MovieDetail = () => {
 };
 
 MovieDetail.getInitialProps = async ({ query: { id }, store }) => {
-  store.dispatch(loadMovieAction(id));
+  await store.dispatch(loadMovieAction(id));
 
-  return {};
+  return { props: {} };
 };
 
 export default MovieDetail;

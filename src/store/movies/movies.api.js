@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { parseList, parseItem } from '../actions-utils';
+import { parseItem, parseList } from '../actions-utils';
 
 /* eslint-disable import/prefer-default-export */
 const BASE_API_URL = 'https://reactjs-cdp.herokuapp.com';

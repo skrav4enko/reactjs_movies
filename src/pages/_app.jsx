@@ -2,9 +2,8 @@
 import App from 'next/app';
 import React from 'react';
 import { END } from 'redux-saga';
-import { wrapper } from '../store/configure-store';
 import ErrorBoundary from '../components/shared/errorBoundary';
-
+import { wrapper } from '../store/configure-store';
 import '../styles/global.scss';
 
 class MyApp extends App {
@@ -16,8 +15,12 @@ class MyApp extends App {
 
     // 2. Stop the saga if on server
     if (ctx.req) {
+      console.log('saga');
+
       ctx.store.dispatch(END);
       await ctx.store.sagaTask.toPromise();
+
+      console.log('saga end');
     }
 
     // 3. Return props

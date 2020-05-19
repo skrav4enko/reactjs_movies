@@ -26,16 +26,20 @@ SearchMovies.getInitialProps = async ({ query, store }) => {
   const { search, searchBy, sortBy } = query;
 
   if (sortBy) {
-    store.dispatch(changeSortByAction(sortBy));
+    await store.dispatch(changeSortByAction(decodeURI(sortBy)));
   }
   if (searchBy) {
-    store.dispatch(changeSearchByAction(searchBy));
+    await store.dispatch(changeSearchByAction(decodeURI(searchBy)));
   }
   if (search) {
-    store.dispatch(changeSearchAction(search));
+    await store.dispatch(changeSearchAction(decodeURI(search)));
+  } else {
+    await store.dispatch(changeSearchAction(''));
   }
 
-  await store.dispatch(loadMoviesAction());
+  const { search: searchParams } = await store.getState();
+
+  await store.dispatch(loadMoviesAction(searchParams));
 
   return {
     props: {},
