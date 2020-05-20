@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react';
-import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
-
-import './styles.scss';
-import Header from '../header';
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import MovieDetail from '../../pages/movieDetail';
+import NotFound from '../../pages/notFound';
+import SearchMovies from '../../pages/searchMovies';
 import Footer from '../footer';
-import SearchMovies from '../../features/searchMovies';
-import MovieDetail from '../../features/movieDetail';
-import NotFound from '../../features/notFound';
+import Header from '../header';
+import './styles.scss';
 
-const MainLayout = () => {
+const Layout = () => {
   const { key } = useLocation();
 
   // Scroll to the top of the page when pages change
@@ -32,4 +31,4 @@ const MainLayout = () => {
   );
 };
 
-export default MainLayout;
+export default Layout;

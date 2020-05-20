@@ -1,9 +1,8 @@
-import React from 'react';
 import { arrayOf } from 'prop-types';
-
-import './styles.scss';
+import React from 'react';
+import movieModel from '../../models/movie.model';
 import MovieCard from '../movieCard';
-import movieModel from '../../../models/movie.model';
+import './styles.scss';
 
 const SearchResults = ({ movies }) => {
   return (

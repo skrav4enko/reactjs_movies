@@ -1,9 +1,8 @@
 import React from 'react';
-
+import movieModel from '../../models/movie.model';
+import Params from '../shared/params';
+import Rating from '../shared/rating';
 import './styles.scss';
-import Rating from '../../../shared/rating';
-import Params from '../../../shared/params';
-import movieModel from '../../../models/movie.model';
 
 const MovieDesc = ({ movie }) => {
   return movie ? (

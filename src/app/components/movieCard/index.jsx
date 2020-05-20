@@ -1,9 +1,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import movieModel from '../../models/movie.model';
 import './styles.scss';
-import movieModel from '../../../models/movie.model';
 
 const MovieCard = ({ movie }) => {
   return (

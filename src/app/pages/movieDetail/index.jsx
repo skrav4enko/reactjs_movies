@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-
-import './styles.scss';
-import SearchResult from '../searchMovies/searchResults';
-import MovieDesc from './movieDesc';
-import SortResults from '../searchMovies/sortResults';
+import MovieDesc from '../../components/movieDesc';
+import SearchResult from '../../components/searchResults';
+import SortResults from '../../components/sortResults';
 import useMovies from '../../hooks/useMovies';
+import './styles.scss';
 
 const MovieDetail = () => {
   const { getMovie, movies, selectedMovie } = useMovies();

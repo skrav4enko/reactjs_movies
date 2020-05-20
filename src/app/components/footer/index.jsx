@@ -1,7 +1,6 @@
 import React from 'react';
-
+import Logo from '../shared/logo';
 import './styles.scss';
-import Logo from '../../shared/logo';
 
 const Footer = () => {
   return (
@@ -11,6 +10,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

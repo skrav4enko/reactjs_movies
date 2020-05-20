@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-
+import useSearch from '../../hooks/useSearch';
+import Button from '../shared/button';
+import ButtonGroup from '../shared/buttonGroup';
+import InputField from '../shared/inputField';
 import './styles.scss';
-import InputField from '../../../shared/inputField';
-import Button from '../../../shared/button';
-import ButtonGroup from '../../../shared/buttonGroup';
-import useSearch from '../../../hooks/useSearch';
 
 const SearchFilter = () => {
   const [searchValue, setSearchValue] = useState('');

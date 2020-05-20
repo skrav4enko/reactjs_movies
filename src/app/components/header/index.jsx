@@ -2,9 +2,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import SearchIcon from '../../../assets/icons/search-24px.svg';
-
+import Logo from '../shared/logo';
 import './styles.scss';
-import Logo from '../../shared/logo';
 
 const Header = () => {
   return (

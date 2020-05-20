@@ -1,10 +1,9 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { func, string, bool } from 'prop-types';
-
+import Button from '../shared/button';
+import ButtonGroup from '../shared/buttonGroup';
 import './styles.scss';
-import Button from '../../../shared/button';
-import ButtonGroup from '../../../shared/buttonGroup';
 
 const SortResults = ({ describe, sortBy, changeSortBy, withSort }) => {
   const location = useLocation();
@@ -50,20 +49,6 @@ const SortResults = ({ describe, sortBy, changeSortBy, withSort }) => {
       </div>
     </div>
   );
-};
-
-SortResults.propTypes = {
-  describe: string,
-  withSort: bool,
-  sortBy: string,
-  changeSortBy: func,
-};
-
-SortResults.defaultProps = {
-  describe: 'string',
-  sortBy: 'string',
-  withSort: true,
-  changeSortBy: 'func',
 };
 
 export default SortResults;

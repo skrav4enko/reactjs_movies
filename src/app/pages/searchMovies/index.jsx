@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-
-import './styles.scss';
-import SearchFilter from './searchFilter';
-import SearchResult from './searchResults';
-import NoResults from './noResults';
-import SortResults from './sortResults';
+import NoResults from '../../components/noResults';
+import SearchFilter from '../../components/searchFilter';
+import SearchResult from '../../components/searchResults';
+import SortResults from '../../components/sortResults';
 import useMovies from '../../hooks/useMovies';
 import useSearch from '../../hooks/useSearch';
+import './styles.scss';
 
 const SearchMovies = () => {
   const { movies, resetMovies } = useMovies();

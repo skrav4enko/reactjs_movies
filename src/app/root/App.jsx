@@ -1,10 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-
-import MainLayout from './core/mainLayout';
-import ErrorBoundary from './shared/errorBoundary';
-import createdStore from './store/configure-store';
+import Layout from '../components/layout';
+import ErrorBoundary from '../components/shared/errorBoundary';
+import createdStore from '../store/configure-store';
 
 const store = createdStore;
 
@@ -13,7 +12,7 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <ErrorBoundary>
-          <MainLayout />
+          <Layout />
         </ErrorBoundary>
       </BrowserRouter>
     </Provider>
