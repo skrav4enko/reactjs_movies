@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Layout from '../../components/layout';
 import MovieDesc from '../../components/movieDesc';
-import SearchResult from '../../components/searchResults';
+import MovieList from '../../components/movieList';
+import NoResults from '../../components/noResults';
 import SortResults from '../../components/sortResults';
 import useMovies from '../../hooks/useMovies';
 import './styles.scss';
@@ -15,11 +17,11 @@ const MovieDetail = () => {
   }, [id]);
 
   return (
-    <>
+    <Layout>
       <MovieDesc movie={selectedMovie} />
       <SortResults describe={`Film by ${selectedMovie && selectedMovie.genres[0]} genre`} withSort={false} />
-      <SearchResult movies={movies} />
-    </>
+      {movies.length ? <MovieList movies={movies} /> : <NoResults />}
+    </Layout>
   );
 };
 

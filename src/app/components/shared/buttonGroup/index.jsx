@@ -1,6 +1,5 @@
+import { arrayOf, node } from 'prop-types';
 import React from 'react';
-import { element, arrayOf } from 'prop-types';
-
 import './styles.scss';
 
 const ButtonGroup = ({ children }) => {
@@ -8,11 +7,11 @@ const ButtonGroup = ({ children }) => {
 };
 
 ButtonGroup.propTypes = {
-  children: arrayOf(element),
+  children: arrayOf(node),
 };
 
 ButtonGroup.defaultProps = {
-  children: 'element',
+  children: <></>,
 };
 
 export default ButtonGroup;

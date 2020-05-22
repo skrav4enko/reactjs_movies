@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import SearchFilter from '.';
+import SearchFilter from '..';
 
 describe('SearchFilter', () => {
   let defaultProps;

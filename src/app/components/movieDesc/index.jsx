@@ -19,7 +19,7 @@ const MovieDesc = ({ movie }) => {
           <div className="movie-desc__genres">{movie.genres.join(', ')}</div>
           <div className="movie-desc__params">
             <Params value={movie.release_date.slice(0, 4)} dimension="year" />
-            <Params value={movie.runtime} dimension="min" />
+            <Params value={movie.runtime ? movie.runtime : '∞'} dimension="min" />
           </div>
           <p className="movie-desc__overview">{movie.overview}</p>
         </div>
@@ -33,7 +33,7 @@ MovieDesc.propTypes = {
 };
 
 MovieDesc.defaultProps = {
-  movie: 'movie',
+  movie: {},
 };
 
 export default MovieDesc;

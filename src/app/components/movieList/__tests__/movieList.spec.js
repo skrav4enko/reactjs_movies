@@ -1,14 +1,15 @@
 /* eslint-disable */
 import React from 'react';
 import { shallow } from 'enzyme';
-import MovieDetail from '.';
+import SearchResults from '..';
 
-describe('MovieDetail', () => {
-  let testProps;
+describe('Movie List', () => {
+  let defaultProps;
 
   beforeEach(() => {
-    testProps = {
-      movie: {
+    defaultProps ={
+      navigateTo: jest.fn(),
+      movies: [{
         id: 338970,
         title: 'Tomb Raider',
         tagline: 'Her legend begins',
@@ -22,12 +23,12 @@ describe('MovieDetail', () => {
         revenue: 126025000,
         genres: ['Action', 'Adventure'],
         runtime: 118,
-      }, movies: [], sortBy: 'title', navigateTo: jest.fn(), handleSort: jest.fn()
+      }]
     }
-  })
-  
+  });
+
   it('should match snapshot', () => {
-    const wrapper = shallow(<MovieDetail {...testProps} />);
+    const wrapper = shallow(<SearchResults {...defaultProps}/>);
     expect(wrapper).toMatchSnapshot();
   });
 });

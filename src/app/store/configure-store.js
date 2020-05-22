@@ -1,23 +1,24 @@
-/* eslint-disable no-underscore-dangle */
-import { createStore, compose, applyMiddleware } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
-
 import rootReducer from './root-reducer';
-import { moviesSaga } from './movies/movies.saga';
-import { searchSaga } from './search/search.saga';
+import rootSaga from './root-saga';
 
-// Redux dev tools
-let devTools = (f) => f;
+const bindMiddleware = (middleware) => {
+  if (process.env.NODE_ENV !== 'production') {
+    return composeWithDevTools(applyMiddleware(...middleware));
+  }
+  return applyMiddleware(...middleware);
+};
 
-if (process.browser && process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION__) {
-  devTools = window.__REDUX_DEVTOOLS_EXTENSION__();
-}
+const makeStore = () => {
+  const sagaMiddleware = createSagaMiddleware();
 
-const sagaMiddleware = createSagaMiddleware();
+  const store = createStore(rootReducer, bindMiddleware([sagaMiddleware]));
 
-const createdStore = createStore(rootReducer, compose(applyMiddleware(sagaMiddleware), devTools));
+  sagaMiddleware.run(rootSaga);
 
-sagaMiddleware.run(moviesSaga);
-sagaMiddleware.run(searchSaga);
+  return store;
+};
 
-export default createdStore;
+export default makeStore;

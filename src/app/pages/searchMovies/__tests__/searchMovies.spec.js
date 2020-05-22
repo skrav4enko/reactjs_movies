@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { shallow } from 'enzyme';
-import SearchMovies from '.';
+import SearchMovies from '..';
 
 describe('Search Movies', () => {
   let testProps;

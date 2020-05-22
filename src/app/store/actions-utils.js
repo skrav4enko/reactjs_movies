@@ -1,5 +1,5 @@
-export const parseList = (response) => {
-  if (response.status !== 200) throw Error(response.message);
+export const parseList = (response, code) => {
+  if (response.status !== code) throw Error(response.message);
   let list = response.data && response.data.data;
   if (typeof list !== 'object') {
     list = [];

@@ -4,7 +4,7 @@ import { SEARCH_VALUE, SEARCH_BY, SORT_BY } from './search.actions';
 const initialState = {
   search: '',
   searchBy: 'title',
-  sortBy: undefined,
+  sortBy: '',
 };
 
 export const searchReducer = (state = initialState, action) => {

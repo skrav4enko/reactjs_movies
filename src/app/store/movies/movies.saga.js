@@ -1,14 +1,13 @@
-import { put, takeEvery, call, all } from 'redux-saga/effects';
-
-import { loadMoviesApi, loadMovieByIdApi } from './movies.api';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import {
-  LOAD_MOVIES_SUCCESS,
-  LOAD_MOVIES_ERROR,
-  LOAD_MOVIES,
   LOAD_MOVIE,
-  LOAD_MOVIE_SUCCESS,
+  LOAD_MOVIES,
+  LOAD_MOVIES_ERROR,
+  LOAD_MOVIES_SUCCESS,
   LOAD_MOVIE_ERROR,
+  LOAD_MOVIE_SUCCESS,
 } from './movies.actions';
+import { loadMovieByIdApi, loadMoviesApi } from './movies.api';
 
 export function* loadingMoviesAsync({ payload }) {
   try {
@@ -46,6 +45,4 @@ export function* watchLoadMovieAsync() {
   yield takeEvery(LOAD_MOVIE, loadMovieAsync);
 }
 
-export function* moviesSaga() {
-  yield all([watchLoadingMoviesAsync(), watchLoadMovieAsync()]);
-}
+export const moviesSaga = [watchLoadingMoviesAsync(), watchLoadMovieAsync()];

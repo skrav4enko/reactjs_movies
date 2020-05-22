@@ -5,10 +5,15 @@ import movieModel from '../../models/movie.model';
 import './styles.scss';
 
 const MovieCard = ({ movie }) => {
+  const errorImgHandler = ({ target }) => {
+    target.src = 'https://via.placeholder.com/150';
+    target.onError = null;
+  };
+
   return (
     <Link className="movie-card" to={`/film/${movie.id}`}>
       <div className="movie-card__poster">
-        <img className="movie-card__img" src={movie.poster_path} alt={movie.title} />
+        <img className="movie-card__img" src={movie.poster_path} alt={movie.title} onError={errorImgHandler} />
       </div>
       <div className="movie-card__footer">
         <div className="movie-card__desc">
@@ -26,7 +31,7 @@ MovieCard.propTypes = {
 };
 
 MovieCard.defaultProps = {
-  movie: 'movie',
+  movie: {},
 };
 
 export default MovieCard;

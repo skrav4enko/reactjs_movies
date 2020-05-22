@@ -12,7 +12,7 @@ import {
 const initialMoviesState = {
   loading: false,
   data: [],
-  error: undefined,
+  error: '',
 };
 
 export const moviesReducer = (state = initialMoviesState, action) => {
@@ -24,7 +24,7 @@ export const moviesReducer = (state = initialMoviesState, action) => {
     case LOAD_MOVIES_ERROR:
       return { ...state, loading: false, error: action.payload };
     case RESET_MOVIES_STATE:
-      return { ...state, loading: false, data: [...action.payload] };
+      return { ...state, loading: false, data: [] };
 
     default:
       return state;
@@ -34,7 +34,7 @@ export const moviesReducer = (state = initialMoviesState, action) => {
 const initialMovieState = {
   loading: false,
   data: null,
-  error: undefined,
+  error: '',
 };
 
 export const movieReducer = (state = initialMovieState, action) => {

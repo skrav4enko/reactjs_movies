@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { shallow } from 'enzyme';
-import Logo from '.';
+import Logo from '..';
 
 describe('Logo', () => {
   it('should match snapshot', () => {

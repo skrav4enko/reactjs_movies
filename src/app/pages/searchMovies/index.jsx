@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import Layout from '../../components/layout';
+import MovieList from '../../components/movieList';
 import NoResults from '../../components/noResults';
 import SearchFilter from '../../components/searchFilter';
-import SearchResult from '../../components/searchResults';
 import SortResults from '../../components/sortResults';
 import useMovies from '../../hooks/useMovies';
 import useSearch from '../../hooks/useSearch';
@@ -38,11 +39,11 @@ const SearchMovies = () => {
   }, []);
 
   return (
-    <>
+    <Layout>
       <SearchFilter searchBy={searchBy} changeSearchBy={changeSearchBy} changeSearch={changeSearch} />
-      <SortResults describe={`${movies.length} movies found`} sortBy={sortBy} changeSortBy={changeSortBy} />
-      {movies.length ? <SearchResult movies={movies} /> : <NoResults />}
-    </>
+      <SortResults describe={`${movies.length} movies found`} sortBy={sortBy} changeSortBy={changeSortBy} withSort />
+      {movies.length ? <MovieList movies={movies} /> : <NoResults />}
+    </Layout>
   );
 };
 

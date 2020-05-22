@@ -1,13 +1,11 @@
+import { node } from 'prop-types';
 import React, { useEffect } from 'react';
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
-import MovieDetail from '../../pages/movieDetail';
-import NotFound from '../../pages/notFound';
-import SearchMovies from '../../pages/searchMovies';
+import { useLocation } from 'react-router-dom';
 import Footer from '../footer';
 import Header from '../header';
 import './styles.scss';
 
-const Layout = () => {
+const Layout = ({ children }) => {
   const { key } = useLocation();
 
   // Scroll to the top of the page when pages change
@@ -18,17 +16,18 @@ const Layout = () => {
   return (
     <div className="main">
       <Header />
-      <main className="content">
-        <Switch>
-          <Redirect exact from="/" to="/search" />
-          <Route path="/search" component={SearchMovies} />
-          <Route path="/film/:id" component={MovieDetail} />
-          <Route exact path="**" component={NotFound} />
-        </Switch>
-      </main>
+      <main className="content">{children}</main>
       <Footer />
     </div>
   );
+};
+
+Layout.propTypes = {
+  children: node,
+};
+
+Layout.defaultProps = {
+  children: <></>,
 };
 
 export default Layout;

@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { shallow } from 'enzyme';
-import Params from '.';
+import Params from '..';
 
 describe('Params', () => {
   let testProps;

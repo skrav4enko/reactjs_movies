@@ -1,11 +1,11 @@
 /* eslint-disable */
 import React from 'react';
 import { shallow } from 'enzyme';
-import InputField from '.';
+import Main from '..';
 
-describe('InputField', () => {
+describe('Layout', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<InputField />);
+    const wrapper = shallow(<Main />);
     expect(wrapper).toMatchSnapshot();
   });
 });

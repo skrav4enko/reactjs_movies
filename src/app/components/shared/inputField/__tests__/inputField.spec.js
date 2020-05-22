@@ -1,11 +1,11 @@
 /* eslint-disable */
 import React from 'react';
 import { shallow } from 'enzyme';
-import NoResults from '.';
+import InputField from '..';
 
-describe('No Results', () => {
+describe('InputField', () => {
   it('should match snapshot', () => {
-    const wrapper = shallow(<NoResults />);
+    const wrapper = shallow(<InputField />);
     expect(wrapper).toMatchSnapshot();
   });
 });

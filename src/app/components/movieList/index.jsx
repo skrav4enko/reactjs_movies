@@ -4,9 +4,9 @@ import movieModel from '../../models/movie.model';
 import MovieCard from '../movieCard';
 import './styles.scss';
 
-const SearchResults = ({ movies }) => {
+const MovieList = ({ movies }) => {
   return (
-    <div className="search-results">
+    <div className="movie-list">
       <div className="container">
         {movies.map((movie) => {
           return <MovieCard key={movie.id} movie={movie} />;
@@ -16,12 +16,12 @@ const SearchResults = ({ movies }) => {
   );
 };
 
-SearchResults.propTypes = {
+MovieList.propTypes = {
   movies: arrayOf(movieModel),
 };
 
-SearchResults.defaultProps = {
-  movies: 'movies',
+MovieList.defaultProps = {
+  movies: [],
 };
 
-export default SearchResults;
+export default MovieList;

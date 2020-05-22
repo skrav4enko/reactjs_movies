@@ -19,7 +19,7 @@ Params.propTypes = {
 
 Params.defaultProps = {
   value: '0',
-  dimension: 'string',
+  dimension: 'dimension',
 };
 
 export default Params;

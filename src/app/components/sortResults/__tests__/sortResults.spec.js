@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import SortResults from '.';
+import SortResults from '..';
 import Button from '../../../shared/button';
 
 describe('Sort Results', () => {

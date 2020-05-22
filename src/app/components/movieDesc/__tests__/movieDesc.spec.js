@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { shallow } from 'enzyme';
-import MovieDesc from '.';
+import MovieDesc from '..';
 
 describe('Movie Desc', () => {
   let defaultProps;

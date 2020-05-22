@@ -1,4 +1,4 @@
-import { all, select, takeEvery } from 'redux-saga/effects';
+import { select, takeEvery } from 'redux-saga/effects';
 import { loadingMoviesAsync } from '../movies/movies.saga';
 import { SEARCH_VALUE } from './search.actions';
 import { getSearchState } from './search.selectors';
@@ -21,6 +21,4 @@ export function* watchSearchValueAsync() {
   yield takeEvery(SEARCH_VALUE, startSearchMoviesAsync);
 }
 
-export function* searchSaga() {
-  yield all([watchSearchValueAsync()]);
-}
+export const searchSaga = [watchSearchValueAsync()];

@@ -32,7 +32,7 @@ InputField.defaultProps = {
   name: 'string',
   type: 'string',
   value: 'string',
-  onChange: 'func',
+  onChange: () => undefined,
 };
 
 export default InputField;

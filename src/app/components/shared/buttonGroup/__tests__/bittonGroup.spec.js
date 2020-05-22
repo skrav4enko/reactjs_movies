@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { shallow } from 'enzyme';
-import ButtonGroup from '.';
+import ButtonGroup from '..';
 
 describe('Button Group', () => {
   it('should match snapshot', () => {
