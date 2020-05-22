@@ -49,7 +49,7 @@ module.exports = (mode) => {
     mode,
     context: path.resolve('src'),
     entry: {
-      main: './index.jsx',
+      main: './index.tsx',
     },
     output: {
       path: path.resolve('build'),
@@ -57,7 +57,11 @@ module.exports = (mode) => {
       publicPath: '/',
     },
     resolve: {
-      extensions: ['.js', '.jsx'],
+      extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    },
+    externals: {
+      react: 'React',
+      'react-dom': 'ReactDOM',
     },
   };
 
@@ -82,9 +86,9 @@ module.exports = (mode) => {
 
   const rules = [
     {
-      test: /\.(js|jsx)$/,
+      test: /\.(t|j)sx?$/,
       exclude: /node_modules/,
-      loader: 'babel-loader',
+      loader: 'ts-loader',
     },
     {
       test: /\.scss$/,
