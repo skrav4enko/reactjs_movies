@@ -17,8 +17,8 @@ const Layout: FunctionComponent = ({ children }) => {
     <div
       css={css`
         position: relative;
-        background-color: var(--color-background);
-        color: var(--color-text);
+        background-color: var(--color-background, #232323);
+        color: var(--color-text, white);
         height: 100%;
         display: grid;
         grid-template-rows: 1fr 70px;

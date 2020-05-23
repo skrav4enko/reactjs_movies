@@ -8,7 +8,7 @@ const Logo: FunctionComponent = () => {
       css={css`
         font-weight: 500;
         font-size: 20px;
-        color: var(--color-text-primary);
+        color: var(--color-text-primary, #f67261);
       `}
     >
       <span

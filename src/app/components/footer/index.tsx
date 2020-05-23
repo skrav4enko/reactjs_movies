@@ -7,7 +7,7 @@ const Footer: FunctionComponent = () => {
   return (
     <footer
       css={css`
-        background-color: var(--color-background-gray-dark);
+        background-color: var(--color-background-gray-dark, #424242);
         height: 70px;
       `}
     >

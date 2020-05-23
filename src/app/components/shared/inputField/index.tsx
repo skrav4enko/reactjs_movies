@@ -24,7 +24,7 @@ const InputField: FunctionComponent<InputFieldProps> = ({ placeholder, name, id,
     background-color: transparent;
     height: 60px;
     font-size: 20px;
-    color: var(--color-text);
+    color: var(--color-text, white);
     padding: 0 20px;
     border-radius: 4px;
     border: none;
