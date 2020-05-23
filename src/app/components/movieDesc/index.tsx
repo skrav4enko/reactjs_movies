@@ -11,7 +11,7 @@ interface MovieDescProps {
 }
 
 const MovieDesc: FunctionComponent<MovieDescProps> = ({ movie }) => {
-  return movie ? (
+  return (
     <div
       css={css`
         background-image: linear-gradient(
@@ -30,77 +30,79 @@ const MovieDesc: FunctionComponent<MovieDescProps> = ({ movie }) => {
         padding-bottom: 70px;
       `}
     >
-      <div
-        css={css`
-          max-width: 1200px;
-          margin: 0 auto;
-          height: 100%;
-          display: flex;
-        `}
-      >
+      {movie ? (
         <div
           css={css`
-            flex: 0 0 auto;
+            max-width: 1200px;
+            margin: 0 auto;
             height: 100%;
-            width: 250px;
-            margin-right: 50px;
-          `}
-        >
-          <img
-            css={css`
-              display: block;
-              height: 100%;
-              width: 100%;
-            `}
-            src={movie.poster_path}
-            alt={movie.title}
-          />
-        </div>
-        <div
-          css={css`
-            & > :not(:last-child) {
-              margin-bottom: 25px;
-            }
+            display: flex;
           `}
         >
           <div
             css={css`
-              display: flex;
-              align-items: center;
+              flex: 0 0 auto;
+              height: 100%;
+              width: 250px;
+              margin-right: 50px;
             `}
           >
-            <h2
+            <img
               css={css`
-                font-size: 60px;
-                margin: 0 25px 0 0;
+                display: block;
+                height: 100%;
+                width: 100%;
               `}
-            >
-              {movie.title}
-            </h2>
-            <Rating value={movie.vote_average.toString()} />
+              src={movie.poster_path}
+              alt={movie.title}
+            />
           </div>
-          <div>{movie.genres.join(', ')}</div>
           <div
             css={css`
               & > :not(:last-child) {
-                margin-right: 25px;
+                margin-bottom: 25px;
               }
             `}
           >
-            <Params value={movie.release_date.slice(0, 4)} dimension="year" />
-            <Params value={movie.runtime ? movie.runtime.toString() : '∞'} dimension="min" />
+            <div
+              css={css`
+                display: flex;
+                align-items: center;
+              `}
+            >
+              <h2
+                css={css`
+                  font-size: 60px;
+                  margin: 0 25px 0 0;
+                `}
+              >
+                {movie.title}
+              </h2>
+              <Rating value={movie.vote_average.toString()} />
+            </div>
+            <div>{movie.genres.join(', ')}</div>
+            <div
+              css={css`
+                & > :not(:last-child) {
+                  margin-right: 25px;
+                }
+              `}
+            >
+              <Params value={movie.release_date.slice(0, 4)} dimension="year" />
+              <Params value={movie.runtime ? movie.runtime.toString() : '∞'} dimension="min" />
+            </div>
+            <p
+              css={css`
+                line-height: 1.5;
+              `}
+            >
+              {movie.overview}
+            </p>
           </div>
-          <p
-            css={css`
-              line-height: 1.5;
-            `}
-          >
-            {movie.overview}
-          </p>
         </div>
-      </div>
+      ) : null}
     </div>
-  ) : null;
+  );
 };
 
 export default MovieDesc;

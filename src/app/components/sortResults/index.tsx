@@ -31,7 +31,7 @@ const SortResults: FunctionComponent<SortResultsProps> = ({ describe, sortBy, ch
   return (
     <div
       css={css`
-        background-color: #555555;
+        background-color: var(--color-background-gray);
       `}
     >
       <div
@@ -46,7 +46,7 @@ const SortResults: FunctionComponent<SortResultsProps> = ({ describe, sortBy, ch
       >
         <div
           css={css`
-            font-weight: 800;
+            font-weight: 700;
           `}
         >
           {describe}

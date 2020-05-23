@@ -16,7 +16,7 @@ const Params: FunctionComponent<ParamsProps> = ({ value, dimension }) => {
     >
       <span
         css={css`
-          color: #f56261;
+          color: var(--color-text-primary);
           font-size: 24px;
           margin-right: 10px;
         `}

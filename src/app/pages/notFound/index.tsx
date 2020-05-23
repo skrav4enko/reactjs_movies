@@ -7,8 +7,8 @@ const NotFound: FunctionComponent = () => (
   <Layout>
     <div
       css={css`
-        background-color: #232323;
-        color: #ffffff;
+        background-color: var(--color-background);
+        color: var(--color-text);
         height: 100%;
         display: flex;
         justify-content: center;

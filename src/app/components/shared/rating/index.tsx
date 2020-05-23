@@ -19,7 +19,7 @@ const Rating: FunctionComponent<RatingProps> = ({ value }) => {
         height: 70px;
         width: 70px;
         font-size: 30px;
-        color: #a1e66f;
+        color: var(--color-text-rating);
       `}
     >
       {value}

@@ -1,7 +1,6 @@
-@import-normalize;
+import { css } from '@emotion/core';
 
-@import './fonts.scss';
-
+export const globalStyles = css`
 *,
 *::before,
 *::after {
@@ -20,5 +19,6 @@ body {
   font-family: 'Montserrat', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #232323;
+  background-color: var(--color-background);
 }
+`

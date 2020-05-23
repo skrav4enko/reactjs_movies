@@ -14,9 +14,9 @@ const buttonBase = css`
   align-items: center;
   justify-content: center;
 
-  background-color: #f65261;
+  background-color: var(--color-background-primary);
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--color-text);
   font-weight: 500;
   font-size: 20px;
 
@@ -35,7 +35,7 @@ const smallStyle = css`
   font-size: 16px;
 `;
 const secondaryStyle = css`
-  background-color: rgba(66, 66, 66, 0.6);
+  background-color: var(--color-button-background-secondary);
 `;
 
 const Button: FunctionComponent<ButtonProps> = ({ children, type = 'button', variant, size, onClick }) => {
