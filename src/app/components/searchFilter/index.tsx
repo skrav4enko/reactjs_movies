@@ -20,11 +20,11 @@ const SearchFilter: FunctionComponent = () => {
     event.preventDefault();
     if (searchValue) {
       const { search } = location;
-      const params = new URLSearchParams(decodeURI(search.substring(1)));
+      const params = new URLSearchParams(decodeURIComponent(search.substring(1)));
       params.set('search', searchValue);
       history.push({
         pathname: '/search',
-        search: encodeURI(params.toString()),
+        search: encodeURIComponent(params.toString()),
       });
     }
 
@@ -34,11 +34,11 @@ const SearchFilter: FunctionComponent = () => {
 
   function handleSearchBy(value: string) {
     const { search } = location;
-    const params = new URLSearchParams(decodeURI(search.substring(1)));
+    const params = new URLSearchParams(decodeURIComponent(search.substring(1)));
     params.set('searchBy', value);
     history.push({
       pathname: '/search',
-      search: encodeURI(params.toString()),
+      search: encodeURIComponent(params.toString()),
     });
 
     changeSearchBy(value);

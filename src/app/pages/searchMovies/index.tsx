@@ -11,12 +11,12 @@ import './styles.scss';
 
 const SearchMovies: FunctionComponent = () => {
   const { movies, resetMovies } = useMovies();
-  const { searchBy, sortBy, changeSearchBy, changeSortBy, changeSearch } = useSearch();
+  const { sortBy, changeSearchBy, changeSortBy, changeSearch } = useSearch();
   const location = useLocation();
 
   function getSearchValue() {
     const { search } = location;
-    const params = new URLSearchParams(decodeURI(search.substring(1)));
+    const params = new URLSearchParams(decodeURIComponent(search.substring(1)));
     const searchParam = params.get('search');
     const searchByParam = params.get('searchBy');
     const sortByParam = params.get('sortBy');

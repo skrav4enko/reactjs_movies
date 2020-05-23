@@ -5,7 +5,7 @@ import Rating from '../shared/rating';
 import './styles.scss';
 
 interface MovieDescProps {
-  movie: MovieModel
+  movie: MovieModel | null
 }
 
 const MovieDesc: FunctionComponent<MovieDescProps> = ({ movie }) => {

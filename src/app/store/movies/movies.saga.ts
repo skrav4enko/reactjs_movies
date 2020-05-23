@@ -29,7 +29,7 @@ export function* loadMovieAsync({ payload }: ReturnType<typeof loadMovieAction>)
       filter: movie.genres[0],
     };
 
-    yield loadMoviesAction({ payload: params });
+    yield loadingMoviesAsync({ type: MOVIES_TYPE.LOAD_MOVIES, payload: params });
   } catch (err) {
     yield put({ type: MOVIE_TYPE.LOAD_MOVIE_ERROR, payload: err.message });
   }

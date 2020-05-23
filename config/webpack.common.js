@@ -59,10 +59,6 @@ module.exports = (mode) => {
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
     },
-    externals: {
-      react: 'React',
-      'react-dom': 'ReactDOM',
-    },
   };
 
   const plugins = [
@@ -76,12 +72,6 @@ module.exports = (mode) => {
     new MiniCssExtractPlugin({
       filename: fileNameOutput({ isDevelopment, ext: 'css' }),
     }),
-    new CopyWebpackPlugin([
-      {
-        from: './assets',
-        to: 'assets',
-      },
-    ]),
   ];
 
   const rules = [
@@ -91,6 +81,11 @@ module.exports = (mode) => {
       loader: 'ts-loader',
     },
     {
+      test: /\.js$/,
+      enforce: 'pre',
+      use: ['source-map-loader'],
+    },
+    {
       test: /\.scss$/,
       exclude: /node_modules/,
       use: styleLoaders(isDevelopment),
@@ -98,7 +93,14 @@ module.exports = (mode) => {
     {
       test: /\.(png|jpe?g|gif)$/,
       exclude: /node_modules/,
-      use: ['file-loader'],
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            outputPath: 'assets/images',
+          },
+        },
+      ],
     },
     {
       test: /\.svg$/,
@@ -108,7 +110,14 @@ module.exports = (mode) => {
     {
       test: /\.(ttf|woff|woff2|eot)$/,
       exclude: /node_modules/,
-      use: ['file-loader'],
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            outputPath: 'assets/fonts',
+          },
+        },
+      ],
     },
   ];
 
