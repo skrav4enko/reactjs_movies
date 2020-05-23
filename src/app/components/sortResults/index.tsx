@@ -1,14 +1,15 @@
-import React, { FunctionComponent } from 'react';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
+import { FunctionComponent } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import Button from '../shared/button';
 import ButtonGroup from '../shared/buttonGroup';
-import './styles.scss';
 
 interface SortResultsProps {
-  describe: string,
-  withSort: boolean,
-  sortBy?: string,
-  changeSortBy?: (_: string) => any,
+  describe: string;
+  withSort: boolean;
+  sortBy?: string;
+  changeSortBy?: (_: string) => any;
 }
 
 const SortResults: FunctionComponent<SortResultsProps> = ({ describe, sortBy, changeSortBy, withSort }) => {
@@ -28,12 +29,38 @@ const SortResults: FunctionComponent<SortResultsProps> = ({ describe, sortBy, ch
   }
 
   return (
-    <div className="sort-results">
-      <div className="container">
-        <div className="sort-results__count">{describe}</div>
+    <div
+      css={css`
+        background-color: #555555;
+      `}
+    >
+      <div
+        css={css`
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          max-width: 1200px;
+          padding: 25px 0;
+          margin: 0 auto;
+        `}
+      >
+        <div
+          css={css`
+            font-weight: 800;
+          `}
+        >
+          {describe}
+        </div>
         {withSort ? (
-          <div className="sort-results__filter">
-            <span className="sort-results__filter-by">Sort by</span>
+          <div>
+            <span
+              css={css`
+                text-transform: uppercase;
+                margin: 25px;
+              `}
+            >
+              Sort by
+            </span>
             <ButtonGroup>
               <Button
                 variant={sortBy === 'release_date' ? '' : 'secondary'}

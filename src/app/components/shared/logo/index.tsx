@@ -1,11 +1,23 @@
-import React, { FunctionComponent } from 'react';
-
-import './styles.scss';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
+import { FunctionComponent } from 'react';
 
 const Logo: FunctionComponent = () => {
   return (
-    <div className="logo">
-      <span className="logo--main">netflix</span>
+    <div
+      css={css`
+        font-weight: 500;
+        font-size: 20px;
+        color: #f67261;
+      `}
+    >
+      <span
+        css={css`
+          font-weight: 700;
+        `}
+      >
+        netflix
+      </span>
       <span>roulette</span>
     </div>
   );

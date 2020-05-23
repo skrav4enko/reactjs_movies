@@ -6,7 +6,6 @@ import MovieList from '../../components/movieList';
 import NoResults from '../../components/noResults';
 import SortResults from '../../components/sortResults';
 import useMovies from '../../hooks/useMovies';
-import './styles.scss';
 
 const MovieDetail: FunctionComponent = () => {
   const { getMovie, movies, selectedMovie } = useMovies();

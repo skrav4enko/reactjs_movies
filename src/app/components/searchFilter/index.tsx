@@ -1,10 +1,12 @@
-import React, { useState, FormEvent, ChangeEvent, FunctionComponent } from 'react';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
+import { ChangeEvent, FormEvent, FunctionComponent, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+import moviesSketchLarge from '../../../assets/images/movies_scatch_large.jpg';
 import useSearch from '../../hooks/useSearch';
 import Button from '../shared/button';
 import ButtonGroup from '../shared/buttonGroup';
 import InputField from '../shared/inputField';
-import './styles.scss';
 
 const SearchFilter: FunctionComponent = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -12,7 +14,7 @@ const SearchFilter: FunctionComponent = () => {
   const location = useLocation();
   const history = useHistory();
 
-  function handleChange({target}: ChangeEvent<HTMLInputElement>) {
+  function handleChange({ target }: ChangeEvent<HTMLInputElement>) {
     setSearchValue(target.value);
   }
 
@@ -45,15 +47,59 @@ const SearchFilter: FunctionComponent = () => {
   }
 
   return (
-    <div className="search-filter">
-      <div className="container">
-        <h1 className="search-filter__title">Find your movie</h1>
-        <form className="search-filter__search" onSubmit={handleSubmit}>
+    <div
+      css={css`
+        background-image: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.9) 100%
+          ),
+          url(${moviesSketchLarge});
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 396px;
+        overflow: hidden;
+        padding-top: 70px;
+      `}
+    >
+      <div
+        css={css`
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 60px;
+        `}
+      >
+        <h1
+          css={css`
+            font-weight: 300;
+            font-size: 40px;
+            text-transform: uppercase;
+          `}
+        >
+          Find your movie
+        </h1>
+        <form
+          css={css`
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 25px;
+            margin-bottom: 25px;
+          `}
+          onSubmit={handleSubmit}
+        >
           <InputField placeholder="Search" id="search" name="search" value={searchValue} onChange={handleChange} />
           <Button type="submit">Search</Button>
         </form>
         <div>
-          <span className="search-filter__search-by">Search by</span>
+          <span
+            css={css`
+              text-transform: uppercase;
+              margin: 25px;
+            `}
+          >
+            Search by
+          </span>
           <ButtonGroup>
             <Button
               variant={searchBy === 'title' ? '' : 'secondary'}

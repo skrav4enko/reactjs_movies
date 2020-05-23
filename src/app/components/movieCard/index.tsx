@@ -1,10 +1,11 @@
-import React, { FunctionComponent } from 'react';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
+import { FunctionComponent } from 'react';
 import { Link } from 'react-router-dom';
 import { MovieModel } from '../../models/movie.model';
-import './styles.scss';
 
 interface MovieCardProps {
-  movie: MovieModel
+  movie: MovieModel;
 }
 
 const MovieCard: FunctionComponent<MovieCardProps> = ({ movie }) => {
@@ -14,16 +15,75 @@ const MovieCard: FunctionComponent<MovieCardProps> = ({ movie }) => {
   };
 
   return (
-    <Link className="movie-card" to={`/film/${movie.id}`}>
-      <div className="movie-card__poster">
-        <img className="movie-card__img" src={movie.poster_path} alt={movie.title} onError={errorImgHandler} />
+    <Link
+      css={css`
+        display: flex;
+        flex-direction: column;
+
+        &:link,
+        &:visited {
+          color: inherit;
+          text-decoration: none;
+        }
+      `}
+      to={`/film/${movie.id}`}
+    >
+      <div
+        css={css`
+          flex: 1 0 auto;
+          min-height: 100px;
+        `}
+      >
+        <img
+          css={css`
+            display: block;
+            height: 100%;
+            width: 100%;
+          `}
+          src={movie.poster_path}
+          alt={movie.title}
+          onError={errorImgHandler}
+        />
       </div>
-      <div className="movie-card__footer">
-        <div className="movie-card__desc">
-          <div className="movie-card__title">{movie.title}</div>
-          <div className="movie-card__genre">{movie.genres.join(', ')}</div>
+      <div
+        css={css`
+          flex: 0 0 auto;
+          display: flex;
+          align-items: flex-start;
+          padding: 25px 0;
+        `}
+      >
+        <div
+          css={css`
+            flex: 1 0;
+            margin-right: 25px;
+          `}
+        >
+          <div
+            css={css`
+              font-size: 20px;
+              margin-bottom: 10px;
+            `}
+          >
+            {movie.title}
+          </div>
+          <div
+            css={css`
+              font-size: 12px;
+            `}
+          >
+            {movie.genres.join(', ')}
+          </div>
         </div>
-        <div className="movie-card__date">{movie.release_date.slice(0, 4)}</div>
+        <div
+          css={css`
+            border-radius: 4px;
+            border: 1px solid #555555;
+            padding: 5px 15px;
+          `}
+        >
+          {movie.release_date.slice(0, 4)}
+        </div>
       </div>
     </Link>
   );

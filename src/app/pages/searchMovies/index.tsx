@@ -1,4 +1,4 @@
-import React, { useEffect, FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Layout from '../../components/layout';
 import MovieList from '../../components/movieList';
@@ -7,7 +7,6 @@ import SearchFilter from '../../components/searchFilter';
 import SortResults from '../../components/sortResults';
 import useMovies from '../../hooks/useMovies';
 import useSearch from '../../hooks/useSearch';
-import './styles.scss';
 
 const SearchMovies: FunctionComponent = () => {
   const { movies, resetMovies } = useMovies();

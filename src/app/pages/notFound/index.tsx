@@ -1,10 +1,22 @@
-import React, { FunctionComponent } from 'react';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
+import { FunctionComponent } from 'react';
 import Layout from '../../components/layout';
-import './styles.scss';
 
 const NotFound: FunctionComponent = () => (
   <Layout>
-    <div className="not-found">4xx Nothing Founded</div>
+    <div
+      css={css`
+        background-color: #232323;
+        color: #ffffff;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      `}
+    >
+      4xx Nothing Founded
+    </div>
   </Layout>
 );
 

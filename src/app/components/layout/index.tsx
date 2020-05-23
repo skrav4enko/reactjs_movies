@@ -1,8 +1,9 @@
-import React, { FunctionComponent, useEffect } from 'react';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core';
+import { FunctionComponent, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Footer from '../footer';
 import Header from '../header';
-import './styles.scss';
 
 const Layout: FunctionComponent = ({ children }) => {
   const { key } = useLocation();
@@ -13,9 +14,25 @@ const Layout: FunctionComponent = ({ children }) => {
   }, [key]);
 
   return (
-    <div className="main">
+    <div
+      css={css`
+        position: relative;
+        background-color: #232323;
+        color: #ffffff;
+        height: 100%;
+        display: grid;
+        grid-template-rows: 1fr 70px;
+      `}
+    >
       <Header />
-      <main className="content">{children}</main>
+      <main
+        css={css`
+          display: flex;
+          flex-direction: column;
+        `}
+      >
+        {children}
+      </main>
       <Footer />
     </div>
   );
