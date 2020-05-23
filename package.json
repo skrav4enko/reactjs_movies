@@ -10,7 +10,9 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "lint": "eslint .",
-    "stats": "cross-env NODE_ENV=production webpack --json > stats.json && webpack-bundle-analyzer stats.json"
+    "stats": "cross-env NODE_ENV=production webpack --json > stats.json && webpack-bundle-analyzer stats.json",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "Sergey",
   "license": "ISC",
@@ -23,6 +25,10 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.9.0",
     "@babel/preset-react": "^7.9.4",
+    "@storybook/addon-actions": "^5.3.18",
+    "@storybook/addon-links": "^5.3.18",
+    "@storybook/addons": "^5.3.18",
+    "@storybook/react": "^5.3.18",
     "@svgr/webpack": "^5.3.1",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^25.2.4",
@@ -70,6 +76,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.28",
     "@types/jest": "^25.2.3",
     "@types/node": "^14.0.5",
     "@types/react": "^16.9.35",
@@ -77,6 +84,7 @@
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
     "axios": "^0.19.2",
+    "immer": "^6.0.6",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
