@@ -12,15 +12,21 @@ const initialState = {
   sortBy: '',
 };
 
-export const searchReducer = (state: ReduxSearchState = initialState, action: SearchReducerActions) => {
+export const searchReducer = (draft: ReduxSearchState = initialState, action: SearchReducerActions) => {
   switch (action.type) {
     case SEARCH_TYPE.SEARCH_VALUE:
-      return { ...state, search: action.payload };
+      draft.search = action.payload;
+
+      return draft;
     case SEARCH_TYPE.SEARCH_BY:
-      return { ...state, searchBy: action.payload };
+      draft.searchBy = action.payload;
+
+      return draft;
     case SEARCH_TYPE.SORT_BY:
-      return { ...state, sortBy: action.payload };
+      draft.sortBy = action.payload;
+
+      return draft;
     default:
-      return state;
+      return draft;
   }
 };

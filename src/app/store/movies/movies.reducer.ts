@@ -13,19 +13,30 @@ const initialMoviesState = {
   error: '',
 };
 
-export const moviesReducer = (state: ReduxMoviesState = initialMoviesState, action: MoviesReducerActions) => {
+export const moviesReducer = (draft: ReduxMoviesState = initialMoviesState, action: MoviesReducerActions) => {
   switch (action.type) {
     case MOVIES_TYPE.LOAD_MOVIES:
-      return { ...state, loading: true, error: '' };
-    case MOVIES_TYPE.LOAD_MOVIES_SUCCESS:
-      return { ...state, loading: false, data: [...action.payload] };
-    case MOVIES_TYPE.LOAD_MOVIES_ERROR:
-      return { ...state, loading: false, error: action.payload };
-    case MOVIES_TYPE.RESET_MOVIES_STATE:
-      return { ...state, loading: false, data: [] };
+      draft.loading = true;
+      draft.error = '';
 
+      return draft;
+    case MOVIES_TYPE.LOAD_MOVIES_SUCCESS:
+      draft.loading = false;
+      draft.data = action.payload;
+
+      return draft;
+    case MOVIES_TYPE.LOAD_MOVIES_ERROR:
+      draft.loading = false;
+      draft.error = action.payload;
+
+      return draft;
+    case MOVIES_TYPE.RESET_MOVIES_STATE:
+      draft.loading = false;
+      draft.data = [];
+
+      return draft;
     default:
-      return state;
+      return draft;
   }
 };
 
@@ -41,16 +52,24 @@ const initialMovieState = {
   error: '',
 };
 
-export const movieReducer = (state: ReduxMovieState = initialMovieState, action: MovieReducerActions) => {
+export const movieReducer = (draft: ReduxMovieState = initialMovieState, action: MovieReducerActions) => {
   switch (action.type) {
     case MOVIE_TYPE.LOAD_MOVIE:
-      return { ...state, loading: true, error: '' };
-    case MOVIE_TYPE.LOAD_MOVIE_SUCCESS:
-      return { ...state, loading: false, data: action.payload };
-    case MOVIE_TYPE.LOAD_MOVIE_ERROR:
-      return { ...state, loading: false, error: action.payload };
+      draft.loading = true;
+      draft.error = '';
 
+      return draft;
+    case MOVIE_TYPE.LOAD_MOVIE_SUCCESS:
+      draft.loading = false;
+      draft.data = action.payload;
+
+      return draft;
+    case MOVIE_TYPE.LOAD_MOVIE_ERROR:
+      draft.loading = false;
+      draft.error = action.payload;
+
+      return draft;
     default:
-      return state;
+      return draft;
   }
 };

@@ -1,8 +1,9 @@
-import { combineReducers } from 'redux';
+import produce from 'immer';
+import { combineReducers } from 'redux-immer';
 import { movieReducer, moviesReducer } from './movies/movies.reducer';
 import { searchReducer } from './search/search.reducer';
 
-const rootReducer = combineReducers({
+const rootReducer = combineReducers(produce, {
   movies: moviesReducer,
   movie: movieReducer,
   search: searchReducer,
