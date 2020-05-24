@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Button should match snapshot 1`] = `
-<button
-  className="button primary small"
+<index.tsx
   onClick={[MockFunction]}
+  size="small"
   type="button"
+  variant="primary"
 >
   Name
-</button>
+</index.tsx>
 `;

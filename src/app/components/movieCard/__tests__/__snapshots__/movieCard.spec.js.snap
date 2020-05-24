@@ -1,41 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Movie Card should match snapshot 1`] = `
-<Link
-  className="movie-card"
-  to="/film/338970"
->
-  <div
-    className="movie-card__poster"
-  >
-    <img
-      alt="Tomb Raider"
-      className="movie-card__img"
-      src="https://image.tmdb.org/t/p/w500/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg"
-    />
-  </div>
-  <div
-    className="movie-card__footer"
-  >
-    <div
-      className="movie-card__desc"
-    >
-      <div
-        className="movie-card__title"
-      >
-        Tomb Raider
-      </div>
-      <div
-        className="movie-card__genre"
-      >
-        Action, Adventure
-      </div>
-    </div>
-    <div
-      className="movie-card__date"
-    >
-      2018
-    </div>
-  </div>
-</Link>
+<index.tsx
+  movie={
+    Object {
+      "budget": 94000000,
+      "genres": Array [
+        "Action",
+        "Adventure",
+      ],
+      "id": 338970,
+      "overview": "Lara Croft, the fiercely independent daughter of a missing adventurer.",
+      "poster_path": "https://image.tmdb.org/t/p/w500/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg",
+      "release_date": "2018-03-08",
+      "revenue": 126025000,
+      "runtime": 118,
+      "tagline": "Her legend begins",
+      "title": "Tomb Raider",
+      "vote_average": 6.2,
+      "vote_count": 817,
+    }
+  }
+  navigateTo={[MockFunction]}
+/>
 `;

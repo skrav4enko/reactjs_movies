@@ -1,11 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search Movies should match snapshot with movie 1`] = `
+exports[`Movie List should match snapshot 1`] = `
 <index.tsx
-  filterBy="title"
-  handleFilter={[MockFunction]}
-  handleFilterBy={[MockFunction]}
-  handleSort={[MockFunction]}
   movies={
     Array [
       Object {
@@ -28,18 +24,5 @@ exports[`Search Movies should match snapshot with movie 1`] = `
     ]
   }
   navigateTo={[MockFunction]}
-  sortBy="title"
-/>
-`;
-
-exports[`Search Movies should match snapshot without movie 1`] = `
-<index.tsx
-  filterBy="title"
-  handleFilter={[MockFunction]}
-  handleFilterBy={[MockFunction]}
-  handleSort={[MockFunction]}
-  movies={Array []}
-  navigateTo={[MockFunction]}
-  sortBy="title"
 />
 `;
