@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Params should match snapshot 1`] = `
+<index.tsx
+  dimension="test"
+  value={5}
+/>
+`;

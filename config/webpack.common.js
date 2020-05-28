@@ -49,7 +49,7 @@ module.exports = (mode) => {
     mode,
     context: path.resolve('src'),
     entry: {
-      main: './index.jsx',
+      main: './index.tsx',
     },
     output: {
       path: path.resolve('build'),
@@ -57,7 +57,7 @@ module.exports = (mode) => {
       publicPath: '/',
     },
     resolve: {
-      extensions: ['.js', '.jsx'],
+      extensions: ['.ts', '.tsx', '.js', '.jsx'],
     },
   };
 
@@ -72,19 +72,18 @@ module.exports = (mode) => {
     new MiniCssExtractPlugin({
       filename: fileNameOutput({ isDevelopment, ext: 'css' }),
     }),
-    new CopyWebpackPlugin([
-      {
-        from: './assets',
-        to: 'assets',
-      },
-    ]),
   ];
 
   const rules = [
     {
-      test: /\.(js|jsx)$/,
+      test: /\.(t|j)sx?$/,
       exclude: /node_modules/,
-      loader: 'babel-loader',
+      loader: 'ts-loader',
+    },
+    {
+      test: /\.js$/,
+      enforce: 'pre',
+      use: ['source-map-loader'],
     },
     {
       test: /\.scss$/,
@@ -94,7 +93,14 @@ module.exports = (mode) => {
     {
       test: /\.(png|jpe?g|gif)$/,
       exclude: /node_modules/,
-      use: ['file-loader'],
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            outputPath: 'assets/images',
+          },
+        },
+      ],
     },
     {
       test: /\.svg$/,
@@ -104,7 +110,14 @@ module.exports = (mode) => {
     {
       test: /\.(ttf|woff|woff2|eot)$/,
       exclude: /node_modules/,
-      use: ['file-loader'],
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            outputPath: 'assets/fonts',
+          },
+        },
+      ],
     },
   ];
 
